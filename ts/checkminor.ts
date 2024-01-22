@@ -1,4 +1,4 @@
-interface Person {
+interface Person1 {
     name: string;
     isStudent: boolean;
     age: number;
@@ -17,11 +17,11 @@ interface Person {
     },
   ];
   
-  const checkMinor = (student: Person) => {
+  const checkMinor = (student: Person1) => {
     return !student.isStudent && student.age >= 18;
   };
   
-  const filterArray = (arr: Person[]) => {
+  const filterArray = (arr: Person1[]) => {
     arr = arr.filter(checkMinor);
     return arr;
   };
