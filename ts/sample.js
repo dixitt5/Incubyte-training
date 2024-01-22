@@ -1,27 +1,22 @@
-var Bike = /** @class */ (function () {
-    function Bike() {
-    }
-    Bike.prototype.start = function () {
+"use strict";
+class Bike {
+    start() {
         console.log("bike started..");
-    };
-    Bike.prototype.stop = function () {
-        console.log("bike stopped..");
-    };
-    return Bike;
-}());
-var Airplane = /** @class */ (function () {
-    function Airplane() {
     }
-    Airplane.prototype.start = function () {
+    stop() {
+        console.log("bike stopped..");
+    }
+}
+class Airplane {
+    start() {
         console.log("Airplane started..");
-    };
-    Airplane.prototype.stop = function () {
+    }
+    stop() {
         console.log("Airplane stopped..");
-    };
-    Airplane.prototype.fly = function () {
+    }
+    fly() {
         console.log("Airplane started flying..");
-    };
-    return Airplane;
-}());
-var plane = new Airplane();
+    }
+}
+const plane = new Airplane();
 Airplane.prototype.fly();

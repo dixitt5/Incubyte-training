@@ -14,3 +14,5 @@
 ## Generics
 
 ## Namespaces
+
+## Interfaces and types joins like "|"
