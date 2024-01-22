@@ -1,3 +1,5 @@
+import { Bike } from "./sample";
+
 class Stack<T> {
    push(element: T) : void {
     this.arr.push(element);
@@ -23,11 +25,13 @@ class Stack<T> {
 
 }
 
-const stack = new Stack<string>;
+const stack = new Stack<Bike>();
 
-stack.push("adi");
-stack.push("adi1");
-stack.push("adi2");
+const bike1 = new Bike()
+const bike2 = new Bike()
+
+stack.push(bike1);
+stack.push(bike2);
 
 console.log(stack)
 console.log(stack.size);

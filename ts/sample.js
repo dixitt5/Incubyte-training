@@ -1,3 +1,6 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Bike = void 0;
 var Bike = /** @class */ (function () {
     function Bike() {
     }
@@ -9,6 +12,7 @@ var Bike = /** @class */ (function () {
     };
     return Bike;
 }());
+exports.Bike = Bike;
 var Airplane = /** @class */ (function () {
     function Airplane() {
     }

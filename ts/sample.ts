@@ -3,7 +3,7 @@ interface Vehicle {
   start(): void;
 }
 
-class Bike implements Vehicle {
+export class Bike implements Vehicle {
   start(): void {
     console.log("bike started..");
   }

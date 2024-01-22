@@ -18,7 +18,7 @@ interface ContactDetails {
     phoneNumber: string;
 }
 
-class Employee implements Person, Address, ContactDetails {
+export class Employee implements Person, Address, ContactDetails {
     email: string
     phoneNumber: string
     addressLine1: AddressLine
@@ -35,3 +35,4 @@ class Employee implements Person, Address, ContactDetails {
         this.addressLine2 = addressLine2
     }
 }
+

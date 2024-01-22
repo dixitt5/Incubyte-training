@@ -1,3 +1,6 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var sample_1 = require("./sample");
 var Stack = /** @class */ (function () {
     function Stack() {
         this.arr = [];
@@ -27,10 +30,11 @@ var Stack = /** @class */ (function () {
     });
     return Stack;
 }());
-var stack = new Stack;
-stack.push("adi");
-stack.push("adi1");
-stack.push("adi2");
+var stack = new Stack();
+var bike1 = new sample_1.Bike();
+var bike2 = new sample_1.Bike();
+stack.push(bike1);
+stack.push(bike2);
 console.log(stack);
 console.log(stack.size);
 stack.pop();
