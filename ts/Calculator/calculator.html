@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Calculator</title>
+
+    <style>
+      .calculator {
+        display: grid;
+        grid-template-columns: repeat(4, 75px);
+        grid-template-rows: 160px 50px;
+        grid-gap: 5px;
+        height: 380px;
+        width: 300px;
+        margin: 0 auto;
+      }
+
+      button {
+        background-color: #ddd;
+        border: none;
+        font-size: 0.8rem;
+        text-align: center;
+      }
+      button:hover {
+        background-color: #969292;
+      }
+
+      #result {
+        grid-column: 1 / span 4;
+        background-color: rgb(228, 223, 223);
+        font-size: 40px;
+        text-align: right;
+        padding: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="calculator">
+      <div id="result">81</div>
+
+      <button>7</button>
+      <button>8</button>
+      <button>9</button>
+      <button>/</button>
+
+      <button>4</button>
+      <button>5</button>
+      <button>6</button>
+      <button>*</button>
+
+      <button>1</button>
+      <button>2</button>
+      <button>3</button>
+      <button>-</button>
+
+      <button>0</button>
+      <button>+</button>
+      <button id="clear">C</button>
+      <button id="eval">=</button>
+    </div>
+  </body>
+</html>
