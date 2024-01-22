@@ -1,31 +1,25 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Bike = void 0;
-var Bike = /** @class */ (function () {
-    function Bike() {
-    }
-    Bike.prototype.start = function () {
+class Bike {
+    start() {
         console.log("bike started..");
-    };
-    Bike.prototype.stop = function () {
-        console.log("bike stopped..");
-    };
-    return Bike;
-}());
-exports.Bike = Bike;
-var Airplane = /** @class */ (function () {
-    function Airplane() {
     }
-    Airplane.prototype.start = function () {
+    stop() {
+        console.log("bike stopped..");
+    }
+}
+exports.Bike = Bike;
+class Airplane {
+    start() {
         console.log("Airplane started..");
-    };
-    Airplane.prototype.stop = function () {
+    }
+    stop() {
         console.log("Airplane stopped..");
-    };
-    Airplane.prototype.fly = function () {
+    }
+    fly() {
         console.log("Airplane started flying..");
-    };
-    return Airplane;
-}());
-var plane = new Airplane();
+    }
+}
+const plane = new Airplane();
 Airplane.prototype.fly();

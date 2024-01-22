@@ -1,38 +1,33 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var sample_1 = require("./sample");
-var Stack = /** @class */ (function () {
-    function Stack() {
+const sample_1 = require("./sample");
+class Stack {
+    constructor() {
         this.arr = [];
     }
-    Stack.prototype.push = function (element) {
+    push(element) {
         this.arr.push(element);
-    };
+    }
     ;
-    Stack.prototype.pop = function () {
+    pop() {
         this.arr.pop();
-    };
+    }
     ;
-    Stack.prototype.top = function () {
+    top() {
         return this.arr[this.arr.length - 1];
-    };
+    }
     ;
-    Stack.prototype.isEmpty = function () {
+    isEmpty() {
         return this.arr.length == 0;
-    };
+    }
     ;
-    Object.defineProperty(Stack.prototype, "size", {
-        get: function () {
-            return this.arr.length;
-        },
-        enumerable: false,
-        configurable: true
-    });
-    return Stack;
-}());
-var stack = new Stack();
-var bike1 = new sample_1.Bike();
-var bike2 = new sample_1.Bike();
+    get size() {
+        return this.arr.length;
+    }
+}
+const stack = new Stack();
+const bike1 = new sample_1.Bike();
+const bike2 = new sample_1.Bike();
 stack.push(bike1);
 stack.push(bike2);
 console.log(stack);
