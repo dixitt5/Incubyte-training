@@ -1,14 +1,29 @@
 // import PokeCard from "./components/PokeCard"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PokeCard from "./components/PokeCard";
 import { pokemonList } from "./data/PokeData";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import { Pokemon } from "./types/Pokemon";
+import { getPokemons } from "./api";
+
 
 function App() {
   const [index, setIndex] = useState<number>(0);
   const isFirstPokemon: boolean = index == 0;
   const isLastPokemon: boolean = index == pokemonList.length - 1;
 
+  const [pokemons, setPokemons] = useState<Pokemon[]>([]);
+
+  useEffect(() => {
+    getPokemons()
+    .then((res: Pokemon[]) => {
+      console.log("Helolo");
+      
+      setPokemons(res);
+    })
+    .catch((error) => console.log(error));
+  }, [])
+  
   const handlePrevious = (): void => {
     if (index >= 0) {
       setIndex(index - 1);
@@ -25,8 +40,9 @@ function App() {
       {/* {pokemonList.map((pokemon: Pokemon) => 
         <PokeCard pokemon={pokemon}/>
       )} */}
-
-      <PokeCard pokemon={pokemonList[index]} />
+      { pokemons.length > 0 ?
+      <>
+      <PokeCard pokemon={pokemons[index]} />
       <div className="w-100 d-flex justify-content-center">
         {!isFirstPokemon && (
           <button
@@ -51,6 +67,10 @@ function App() {
           </button>
         )}
       </div>
+      </>
+      :
+      <div>Loading</div>
+        }
     </>
   );
 }
