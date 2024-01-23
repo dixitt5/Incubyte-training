@@ -1,17 +1,19 @@
 import React from "react";
 import { PokeCard } from "../components/PokeCard";
 import { IPokemon, PokeType } from "../models/Pokemon";
+import { useState } from "react";
+import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
-const [index, setIndex] = useState<number>(0);
-
-const getNextPokemon = () => {
-  useState(index + 1);
-}
-const getPreviousPokemon = () => {
-  useState(index - 1);
-}
 
 function Home() {
+  const [index, setIndex] = useState<number>(0);
+
+  const getNextPokemon = () => {
+    setIndex(index + 1);
+  }
+  const getPreviousPokemon = () => {
+    setIndex(index - 1);
+  }
   const pokemon: IPokemon[] = [
     {
       name: "charizard",
@@ -45,10 +47,17 @@ function Home() {
       imageUrl: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png",
       id: 15
     }]
-  return <>(
-    <PokeCard pokemonObj={pokemon} />
-    <button onclick="getPreviousPokemon()">Prev</button>
-    )</>;
+  return (
+    <>
+      <div className="container" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+        <PokeCard pokemonObj={pokemon[index]} />
+        <button className="btn btn-primary" style={{ margin: 5 }} onClick={getPreviousPokemon} disabled={index === 0}>Previous</button>
+        <button className="btn btn-primary" style={{ margin: 5 }} onClick={getNextPokemon} disabled={index === pokemon.length - 1}>Next</button>
+      </div>
+
+    </>
+  );
+
 }
 
 export default Home;

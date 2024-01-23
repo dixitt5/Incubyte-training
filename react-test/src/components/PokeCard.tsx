@@ -3,16 +3,18 @@ import React from "react"
 import { IPokemon } from "../models/Pokemon"
 
 interface PokeCardProps {
-    pokemonObj : IPokemon
+    pokemonObj: IPokemon
 }
 
 export const PokeCard = (props: PokeCardProps) => {
     return <>
-        
-            <div>
-                <img src={props.pokemonObj.imageUrl} alt={props.pokemonObj.name} />
-            </div>
-           <div>{ props.pokemonObj.name}</div>
-        
+        <div>
+            <img width={200} src={props.pokemonObj.imageUrl} alt={props.pokemonObj.name} /><br />
+            <span>ID: {props.pokemonObj.id}</span><br />
+            <span>Name: {props.pokemonObj.name}</span><br />
+            <span>Type: {props.pokemonObj.type}</span><br />
+            <span>Height: {props.pokemonObj.height}</span><br />
+            <span>Weight: {props.pokemonObj.weight}</span><br />
+        </div>
     </>
 }
