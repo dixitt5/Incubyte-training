@@ -90,26 +90,29 @@
 - custom html tag, assume
 - use as: <App />
 
-# 
-have to provide key, so that it can rerendered specifically
-
+# map and key
+have to provide key to each element while using map(), so that it can rerendered specifically
 
 ---
 # mob review
+- 3 or more people in pair programming
 
-# ILD
+# ILD pair programming practise
 - implementation
 - location
 - describe
 
-# ctrl p -> > ->  
+# change document formatter shortcut
+- ctrl p -> > ->format document with 
+- shift alt f
+- enable eslint formatting in settings 
 
-# 
+# return type of component
 - JSX.Element
 - ReactElement
 - HTMLDivELement
 
-# 
+# structure of project
 types
 models
 pages - parent files (mapped with url)
@@ -120,18 +123,30 @@ components - sub components which are used in pages
     Grass, Fire, Water, Rock
 }
 
-# rename 
-f2
+# rename shortcut 
+- f2
 
-# arrow function
-rafc
+# arrow function shortcut
+- rafc 
 
 # mapping enum
+- make a object, with enum as key and their string as value
+- make function with the enum prop as argument, and get value from mapping of enum and string
 
-make a object, with enum as key and their string as value
-
-make function with the enum prop as argument, and get value from mapping of enum and strig
+# hooks
 
 # state
-react does not know when changes are made
-we need to maintain state, so that when changes are makde, it is rerendered
+- react does not know when changes are made
+- we need to maintain state, so that when changes are makde, it is rerendered
+- useState
+
+# useEffect
+- callback
+- dependency array
+- infinite calls (all elements are rerendered again and again on state change of any element (data returned changes))
+
+# promise / async await
+
+# fake api call
+
+# flexbox/grid

@@ -1,18 +1,13 @@
-export interface Person {
-    name: string;
-    age: number;
-    isStudent: boolean
-}
-
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.persons = void 0;
 // const isMinor = (person: Person): boolean => {
 //     return person.age < 18 && person.isStudent
 // }
-
-const isMinor = (persons: Person[]): Person[] => {
-    return persons.filter((person) => person.age < 18 && person.isStudent)
-}
-
-export const persons: Person[] = [
+const isMinor = (persons) => {
+    return persons.filter((person) => person.age < 18 && person.isStudent);
+};
+exports.persons = [
     {
         name: "Aditya",
         age: 20,
@@ -33,15 +28,11 @@ export const persons: Person[] = [
         age: 16,
         isStudent: true
     }
-]
-
+];
 // let minors: Person[] = [];
-
 // persons.forEach((person) => {
 //     if(isMinor(person))
 //         minors.push(person);
 // });
-
 // console.log("Minors: ", minors);
-
 // console.log("Minors are: ", isMinor(persons))
