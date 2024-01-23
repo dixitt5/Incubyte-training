@@ -1,6 +1,6 @@
 export interface IPokemon {
     name : string,
-    type : PokeType,
+    type : PokeType |string,
     height : number,
     weight : number,
     imageUrl: string,
@@ -11,6 +11,18 @@ export enum PokeType {
     water,
     land,
     fire,
+    grass,
     other,
+    poison,
     rock,
+}
+
+export const PokeTypeNames = {
+    [PokeType.water]: "Water",
+    [PokeType.land]: "Land",
+    [PokeType.fire]: "Fire",
+    [PokeType.grass]: "Grass",
+    [PokeType.other]: "Other",
+    [PokeType.poison]: "Poison",
+    [PokeType.rock]: "Rock",
 }

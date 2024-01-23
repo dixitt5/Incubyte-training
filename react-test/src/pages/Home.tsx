@@ -2,7 +2,7 @@ import React from "react";
 import { PokeCard } from "../components/PokeCard";
 import { IPokemon, PokeType } from "../models/Pokemon";
 import { useState } from "react";
-import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 
 function Home() {
@@ -19,44 +19,55 @@ function Home() {
       name: "charizard",
       height: 123,
       weight: 232,
-      type: PokeType.fire,
+      type:[ PokeType.fire, PokeType.other],
       imageUrl: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
       id: 12
     },
     {
-      name: "charizard",
-      height: 123,
-      weight: 232,
-      type: PokeType.fire,
+      name: "bulbasor",
+      height: 13,
+      weight: 322,
+      type:[ PokeType.poison, PokeType.grass, PokeType.other],
       imageUrl: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/2.png",
       id: 13
     },
     {
-      name: "charizard",
+      name: "pikachu",
       height: 123,
       weight: 232,
-      type: PokeType.fire,
+      type:[ PokeType.land, PokeType.other],
       imageUrl: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/3.png",
       id: 14
     },
-    {
-      name: "charizard",
-      height: 123,
-      weight: 232,
-      type: PokeType.fire,
-      imageUrl: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png",
-      id: 15
-    }]
-  return (
-    <>
-      <div className="container" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-        <PokeCard pokemonObj={pokemon[index]} />
-        <button className="btn btn-primary" style={{ margin: 5 }} onClick={getPreviousPokemon} disabled={index === 0}>Previous</button>
-        <button className="btn btn-primary" style={{ margin: 5 }} onClick={getNextPokemon} disabled={index === pokemon.length - 1}>Next</button>
-      </div>
+    ]
+    return (
+      <>
+       <PokeCard pokemonObj ={pokemon[index]} />
+      <div className="d-flex justify-content-center mb-3">
+        <div className="btn-group" role="group" aria-label="Basic example">
+          {/* {index > 0 && ( */}
+          <button
+            type="button"
+            className="btn btn-outline-primary"
+            onClick={() => getPreviousPokemon()}
+          >
+            Prev
+          </button>
+          {/* )} */}
 
-    </>
-  );
+          {/* {index < pokemons.length - 1 && ( */}
+          <button
+            type="button"
+            className="btn btn-outline-primary"
+            onClick={() => getNextPokemon()}
+          >
+            Next
+          </button>
+          {/* )} */}
+        </div>
+      </div>
+      </>
+    );
 
 }
 
