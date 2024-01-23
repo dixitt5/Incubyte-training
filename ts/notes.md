@@ -13,6 +13,13 @@
 
 ## Generics
 
+- A class having generics can accept diff types of datatypes, and can work just like it's intended to.
+### Example
+```typescript
+const d1 = new Tuple<number, boolean, string>(10, true, "Hello");
+```
+
+
 ## Namespaces
 
 ## Interfaces and types joins like "|"
