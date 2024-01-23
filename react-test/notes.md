@@ -35,7 +35,7 @@ export enum PokemonType {
 ```
 
 ### Props 
-
+- are called functional arguements , can pass values from one component to another component
 ```typescript
 export type PokemonProps = {
   pokemon: Pokemon;
@@ -44,3 +44,10 @@ export type PokemonProps = {
 export function Header(pokemon: PokemonProps) {
 ```
 
+### Bootstrap 
+
+#### Installation
+- run this command
+```
+npm install bootstrap
+```
