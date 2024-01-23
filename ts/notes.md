@@ -22,4 +22,14 @@ const d1 = new Tuple<number, boolean, string>(10, true, "Hello");
 
 ## Namespaces
 
-## Interfaces and types joins like "|"
+- It can have multiple interfaces and types in it, which can be imported into different ts file and can be used like this - 
+```typescript
+namespace_name.Classname.function()
+```
+
+## Interfaces and types joins like "|" (union)
+
+- can be done something like this ,
+```typescript
+type = string | number
+```

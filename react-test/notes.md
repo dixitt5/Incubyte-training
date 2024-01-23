@@ -1,6 +1,10 @@
 # React
 
+- developed by facebook devs.
+
 ### CSR vs SSR
+
+SSR is good for scalability in older devices, but one disadvantage is that when refreshing or routing server fetches again, while CSR does not refreshes again when routing, therefor fast.
 
 ### Installation with Vite
 
@@ -17,6 +21,8 @@
 - only renders the component, not the whole dom.
 
 ### Enums in TypeScript
+- Crete your own datatypes.
+> Just like solidity enums.
 
 ```typescript
 export enum PokemonType {
