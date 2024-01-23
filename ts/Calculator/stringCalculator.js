@@ -1,41 +1,27 @@
-interface ICalculator {
-    currentNumber: string;
-    previousNumber: string;
-    operation: string
-
-    clear(): void;
-
-    appendNumber(number: string): void;
-    chooseOperation(operation: string): void;
-    compute(): void;
-    updateDisplay(): void;
-}
-
-class Calculator implements ICalculator {
-    currentNumber = '';
-    previousNumber = '';
-    operation = ''
-
-    constructor(private displayElement: HTMLElement) {}
-
+"use strict";
+class Calculator {
+    constructor(displayElement) {
+        this.displayElement = displayElement;
+        this.currentNumber = '';
+        this.previousNumber = '';
+        this.operation = '';
+    }
     clear() {
         this.currentNumber = '';
         this.previousNumber = '';
         this.operation = '';
     }
-
-    appendNumber(number: string) {
+    appendNumber(number) {
         this.currentNumber = this.currentNumber.toString() + number.toString();
     }
-
-    chooseOperation(operation: string) {
+    chooseOperation(operation) {
         this.operation = operation;
-        if(operation === "=") {
-            if(['/', '*', '-', '+'].includes(displayElement.innerText.charAt(displayElement.innerText.length - 1))) {
+        if (operation === "=") {
+            if (['/', '*', '-', '+'].includes(displayElement.innerText.charAt(displayElement.innerText.length - 1))) {
                 return;
-            } 
+            }
         }
-        if((['/', '*', '-', '+'].includes(displayElement.innerText.charAt(displayElement.innerText.length - 1)))) {
+        if ((['/', '*', '-', '+'].includes(displayElement.innerText.charAt(displayElement.innerText.length - 1)))) {
             let newText = displayElement.innerText.split('');
             newText[newText.length - 1] = operation;
             displayElement.innerText = newText.join('');
@@ -43,20 +29,18 @@ class Calculator implements ICalculator {
         else {
             displayElement.innerText += operation;
         }
-        if (this.currentNumber === '') return;
+        if (this.currentNumber === '')
+            return;
         if (this.previousNumber !== '') {
             this.compute();
         }
         this.previousNumber = this.currentNumber;
-      
         this.currentNumber = '';
     }
-
     compute() {
         let computation;
         const prev = parseFloat(this.previousNumber);
         const current = parseFloat(this.currentNumber);
-        
         switch (this.operation) {
             case '+':
                 computation = prev + current;
@@ -73,34 +57,32 @@ class Calculator implements ICalculator {
             default:
                 return;
         }
-
         this.currentNumber = computation.toString();
         this.operation = '';
         this.previousNumber = '';
     }
-
     updateDisplay() {
         this.displayElement.innerText = this.currentNumber;
     }
 }
-
-const displayElement = document.getElementById('result') as HTMLElement;
+const displayElement = document.getElementById('result');
 const calculator = new Calculator(displayElement);
-
 document.querySelectorAll('.calculator button').forEach(button => {
     button.addEventListener('click', () => {
         if (button.id === 'clear') {
             calculator.clear();
             calculator.updateDisplay();
-        } else if (button.id === 'eval') {
-            calculator.compute();     
+        }
+        else if (button.id === 'eval') {
+            calculator.compute();
             calculator.updateDisplay();
-        } else if (['/', '*', '-', '+'].includes(button.textContent!)) {
-            calculator.chooseOperation(button.textContent!);
-        } else {
-            calculator.appendNumber(button.textContent!);
+        }
+        else if (['/', '*', '-', '+'].includes(button.textContent)) {
+            calculator.chooseOperation(button.textContent);
+        }
+        else {
+            calculator.appendNumber(button.textContent);
             calculator.updateDisplay();
         }
     });
 });
-
