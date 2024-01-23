@@ -34,3 +34,13 @@ export enum PokemonType {
 }
 ```
 
+### Props 
+
+```typescript
+export type PokemonProps = {
+  pokemon: Pokemon;
+};
+
+export function Header(pokemon: PokemonProps) {
+```
+

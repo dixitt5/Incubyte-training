@@ -1,12 +1,13 @@
 export type Pokemon = {
+  id: number,
   name: string;
-  type: PokemonType;
+  types: PokemonType[] | string[];
   height: number;
   width: number;
+  URL: string;
 };
 
 export enum PokemonType {
-  Grass,
   Water,
   Fire,
   Rock,
