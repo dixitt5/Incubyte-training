@@ -1,15 +1,16 @@
-import { Person } from "../types/Person";
+import { Pokemon } from "../types/Pokemon";
 
-const p1: Person = {
-  name: "Dixit",
-  age: 20,
-};
+export type PokemonProps = {
+    pokemon : Pokemon,
+}
 
-export function Header() {
+
+export function Header(pokemon : PokemonProps) {
   return (
     <div>
       <h1>
-        Hello {p1.name} with age = {p1.age}
+        Hello {pokemon.pokemon.name} <br></br>
+        with type {pokemon.pokemon.type}
       </h1>
     </div>
   );

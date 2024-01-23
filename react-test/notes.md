@@ -16,3 +16,15 @@
 
 - only renders the component, not the whole dom.
 
+### Enums in TypeScript
+
+```typescript
+export enum PokemonType {
+  Grass,
+  Water,
+  Fire,
+  Rock,
+  Other,
+}
+```
+
