@@ -1,20 +1,24 @@
 
 import React from "react"
 import { IPokemon } from "../models/Pokemon"
+import PokeImage from "./PokeImage";
+import PokeDetails from "./PokeDetails";
 
 interface PokeCardProps {
-    pokemonObj: IPokemon
+    pokemonObj: IPokemon;
+    route: string
+    // children: JSX.Element // React.ReactNode
 }
 
-export const PokeCard = (props: PokeCardProps) => {
+export const PokeCard = ({ pokemonObj, route }: PokeCardProps) => {
+    // console.log(children.props.children); // This how we can access the children within the props.
     return <>
         <div>
-            <img width={200} src={props.pokemonObj.imageUrl} alt={props.pokemonObj.name} /><br />
-            <span>ID: {props.pokemonObj.id}</span><br />
-            <span>Name: {props.pokemonObj.name}</span><br />
-            <span>Type: {props.pokemonObj.type}</span><br />
-            <span>Height: {props.pokemonObj.height}</span><br />
-            <span>Weight: {props.pokemonObj.weight}</span><br />
+            {
+                route === "PokeImage"
+                    ? <PokeImage url={pokemonObj.imageUrl} name={pokemonObj.name} />
+                    : <PokeDetails pokemon={pokemonObj} />
+            }
         </div>
     </>
 }

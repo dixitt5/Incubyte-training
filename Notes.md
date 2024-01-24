@@ -30,3 +30,15 @@ eg. interface Person {
 
 - It is similar to salary: number | undefined
 
+
+# Day-2
+-- Missing
+
+
+# Day-3
+
+## React
+- If a component tag has any children then they can be accessed as 'children' attribute while passing it in props.
+
+### Routes
+- 

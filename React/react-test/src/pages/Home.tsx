@@ -7,6 +7,7 @@ import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 function Home() {
   const [index, setIndex] = useState<number>(383);
+  const [route, setRoute] = useState<string>("PokeImage");
 
   const getNextPokemon = () => {
     setIndex(index + 1);
@@ -26,11 +27,15 @@ function Home() {
   return (
     <>
       <div className="container">
-        <PokeCard pokemonObj={pokemon} />
+        <PokeCard pokemonObj={pokemon} route={route} ></PokeCard>
         <button className="btn btn-primary" style={{ margin: 5 }} onClick={getPreviousPokemon} disabled={index === 0}>Previous</button>
+        {
+          route === "PokeImage"
+            ? <button className="btn btn-danger" style={{ margin: 5 }} onClick={() => setRoute("PokeDetails")} disabled={index === 0}>Details</button>
+            : <button className="btn btn-success" style={{ margin: 5 }} onClick={() => setRoute("PokeImage")}>Image</button>
+        }
         <button className="btn btn-primary" style={{ margin: 5 }} onClick={getNextPokemon} disabled={index === 400}>Next</button>
       </div>
-
     </>
   );
 
