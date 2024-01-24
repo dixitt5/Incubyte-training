@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module" src="./calcOperations.js" defer></script>
+  </head>
+  <body>
+    <div class="h-screen flex items-center justify-center flex-col">
+      <div class="rounded rounded-md bg-gray-300 border border-black p-2 m-4">
+        <div>
+          <p id="display" class="bg-white my-4 p-3 right text-end text-xl">
+            00
+          </p>
+        </div>
+        <div class="grid grid-cols-4 grid-rows-5 gap-4">
+          <div>
+            <button
+              id="btn"
+              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            >
+              1
+            </button>
+          </div>
+          <div>
+            <button
+              id="btn"
+              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            >
+              2
+            </button>
+          </div>
+          <div>
+            <button
+              id="btn"
+              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            >
+              3
+            </button>
+          </div>
+          <div>
+            <button
+              id="btn"
+              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            >
+              +
+            </button>
+          </div>
+          <div class="row-start-2">
+            <button
+              id="btn"
+              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            >
+              4
+            </button>
+          </div>
+          <div class="row-start-2">
+            <button
+              id="btn"
+              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            >
+              5
+            </button>
+          </div>
+          <div class="row-start-2">
+            <button
+              id="btn"
+              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            >
+              6
+            </button>
+          </div>
+          <div class="row-start-2">
+            <button
+              id="btn"
+              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            >
+              -
+            </button>
+          </div>
+          <div class="row-start-3">
+            <button
+              id="btn"
+              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            >
+              7
+            </button>
+          </div>
+          <div class="row-start-3">
+            <button
+              id="btn"
+              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            >
+              8
+            </button>
+          </div>
+          <div class="row-start-3">
+            <button
+              id="btn"
+              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            >
+              9
+            </button>
+          </div>
+          <div class="row-start-3">
+            <button
+              id="btn"
+              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            >
+              x
+            </button>
+          </div>
+          <div class="row-start-4">
+            <button
+              id="btn"
+              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            >
+              0
+            </button>
+          </div>
+          <div class="row-start-4">
+            <button
+              id="btn"
+              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            >
+              00
+            </button>
+          </div>
+          <div class="row-start-4">
+            <button
+              id="btn"
+              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            >
+              .
+            </button>
+          </div>
+          <div class="row-start-4">
+            <button
+              id="btn"
+              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            >
+              /
+            </button>
+          </div>
+        </div>
+        <div class="">
+          <button
+            id="btn"
+            class="bg-blue-500 hover:bg-blue-700 text-white w-full font-bold py-2 px-4 rounded"
+          >
+            =
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

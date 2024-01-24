@@ -1,6 +1,4 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Bike = void 0;
 class Bike {
     start() {
         console.log("bike started..");
@@ -9,7 +7,6 @@ class Bike {
         console.log("bike stopped..");
     }
 }
-exports.Bike = Bike;
 class Airplane {
     start() {
         console.log("Airplane started..");
