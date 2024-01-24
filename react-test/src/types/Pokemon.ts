@@ -17,6 +17,7 @@ export interface PokemonDetailsApi extends PokemonApi {
   baseExperience: number
   height: number
   weight: number
+  abilities: string[]
 }
 
 export enum PokemonType {

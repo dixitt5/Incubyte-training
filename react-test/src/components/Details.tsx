@@ -29,6 +29,9 @@ const Details = ({ id }: PokemonId): ReactElement => {
               <h2>Base Experience: {pokemon?.baseExperience}</h2>
               <h2>Height: {pokemon?.height}</h2>
               <h2>Weight: {pokemon?.weight}</h2>
+              <h2>Abilities: <ul>{pokemon?.abilities.map((ab, index) => {
+                return <li key={index}>{ab}</li>
+              })}</ul></h2>
             </div>
               )
             : (
