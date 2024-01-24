@@ -8,7 +8,7 @@ export const usePokemonApi = (limit: number): {
   error: any
 } => {
   const [pokemons, setPokemons] = useState<PokemonType[]>([])
-  const [isLoading, setIsLoading] = useState<boolean>(false)
+  const [isLoading, setIsLoading] = useState<boolean>(true)
   const [error, setError] = useState<any>(null)
 
   const fetchPokemonData = async (): Promise<PokemonType[]> => {

@@ -15,7 +15,8 @@ export const Home = (): ReactElement => {
   return (
         <div>
           {isLoading
-            ? <>Loading</>
+            ? <div className="spinner-border text-primary" role="status">
+              </div>
             : router === 'home'
               ? <div className="d-flex flex-wrap">
                 {pokemons.map((pokemon: PokemonType, index: number) => (

@@ -14,7 +14,7 @@ export const usePokemonDetails = (id: number): {
     name: '',
     abilities: []
   })
-  const [isLoading, setIsLoading] = useState<boolean>(false)
+  const [isLoading, setIsLoading] = useState<boolean>(true)
   const [error, setError] = useState<any>(null)
 
   async function fetchPokemonDetails (): Promise<PokeType> {
