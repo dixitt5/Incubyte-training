@@ -6,7 +6,5 @@ export const getPokemons = async (): Promise<Pokemon[]> => {
         setTimeout(() => {
             resolve(pokemonList);
         }, 2000)
-        // reject(new Error('pokemon fetch has failed'));
-
     })
 }
