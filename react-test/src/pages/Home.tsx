@@ -1,39 +1,41 @@
-import { MouseEventHandler, useEffect, useState } from "react";
-import { PokeCard } from "../components/Header";
-import { Pokemon } from "../types/Pokemon";
-import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import { fetchPokemons } from "../fakeApi";
+import { type MouseEventHandler, useEffect, useState } from 'react'
+import { PokeCard } from '../components/Header'
+import { type Pokemon } from '../types/Pokemon'
+import '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
+import { fetchPokemons } from '../fakeApi'
 
-function App() {
-  const [index, setIndex] = useState<number>(0);
-  const [pokemons, setPokemon] = useState<Pokemon[]>([]);
-  const [isloading, setLoading] = useState<boolean>(true);
+interface RouterProps {
+  setRoute: (route: string) => void
+}
 
-  const callbackInvoke = async () =>  {
-    const result = await fetchPokemons();
-    setPokemon(result as Pokemon[]);
-    setLoading(false);
-  };
+function App ({ setRoute }: Readonly<RouterProps>): JSX.Element {
+  const [index, setIndex] = useState<number>(0)
+  const [pokemons, setPokemons] = useState<Pokemon[]>([])
+  const [isloading, setIsloading] = useState<boolean>(true)
+
+  const callbackInvoke = async (): Promise<void> => {
+    const result = await fetchPokemons()
+    setPokemons(result as Pokemon[])
+    setIsloading(false)
+  }
 
   useEffect(() => {
-    callbackInvoke();
-  }, []);
+    void callbackInvoke().then()
+  }, [])
 
-  const changePokemon = (goForward: boolean): MouseEventHandler | void => {
+  const changePokemon = (goForward: boolean): MouseEventHandler => {
     if (goForward) {
       if (index === pokemons.length - 1) {
-        alert("This was the last pokemon");
+        alert('This was the last pokemon')
       } else {
-        setIndex(index + 1);
+        setIndex(index + 1)
       }
+    } else if (index === 0) {
+      alert('This was the first pokemon')
     } else {
-      if (index === 0) {
-        alert("This was the first pokemon");
-      } else {
-        setIndex(index - 1);
-      }
+      setIndex(index - 1)
     }
-  };
+  }
 
   return (
     <>
@@ -41,7 +43,7 @@ function App() {
         <div className="d-flex flex-column h-100 my-auto justify-content-center align-items-center">
           <div
             className="spinner-border text-primary me-2"
-            role="status"
+            role="output"
             aria-hidden="true"
           ></div>
           <h3 className="mb-0">Loading...</h3>
@@ -70,12 +72,19 @@ function App() {
                 Next
               </button>
               {/* )} */}
+              <button
+                onClick={() => {
+                  setRoute('details')
+                }}
+              >
+                Change Route
+              </button>
             </div>
           </div>
         </div>
       )}
     </>
-  );
+  )
 }
 
-export default App;
+export default App

@@ -4,7 +4,7 @@ export type PokemonProps = {
   pokemon: Pokemon;
 };
 
-export function PokeCard({ pokemon }: PokemonProps) {
+export function PokeCard({ pokemon }: Readonly<PokemonProps>) {
   const {id,URL, name,types, height, width} = pokemon;
   return (
     <div className="card my-4 mx-auto shadow-md">

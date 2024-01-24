@@ -51,3 +51,20 @@ export function Header(pokemon: PokemonProps) {
 ```
 npm install bootstrap
 ```
+
+### Hooks
+
+1) useEffect - re-renders the component when dependency array values are changed.
+```typescript
+useEffect(()=>{
+"Callback Function"
+},["Dependency Array"]);
+```  
+1) useState - has one 
+```typescript
+useEffect(()=>{
+"Callback Function"
+},["Dependency Array"]);
+```  
+
+### Routing
