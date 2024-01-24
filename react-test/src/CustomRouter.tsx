@@ -1,12 +1,14 @@
-import { useState } from "react";
-import Home from "./pages/Home";
-import Details from "./components/Details";
+import { type ReactElement, useState } from 'react'
+import Home from './pages/Home'
+import Details from './components/Details'
 
-const CustomRouter = () => {
-  const [route, setRoute] = useState<string>("home");
+const CustomRouter = (): ReactElement => {
+  const [route, setRoute] = useState<string>('home')
   return (
-    <div>{route === "home" ? <Home setRoute={setRoute} /> : <Details />}</div>
-  );
-};
+        <div>
+            {route === 'home' ? <Home setRoute={setRoute}/> : <Details/>}
+        </div>
+  )
+}
 
-export default CustomRouter;
+export default CustomRouter
