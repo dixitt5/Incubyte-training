@@ -1,5 +1,5 @@
 import { type ReactElement } from 'react'
-import { type PokemonType } from '../types/PokeEnum.ts'
+import { type PokemonType } from '../interfaces/PokeType.ts'
 
 interface PokeCardProps {
   pokemon: PokemonType
