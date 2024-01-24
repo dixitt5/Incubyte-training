@@ -1,8 +1,8 @@
 export interface IPokemon {
-    name : string,
-    type : PokeType,
-    height : number,
-    weight : number,
+    name: string,
+    type: PokeType[] | string[],
+    height: number,
+    weight: number,
     imageUrl: string,
     id: number,
 }
