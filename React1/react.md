@@ -149,4 +149,14 @@ components - sub components which are used in pages
 
 # fake api call
 
+# bootstrap
+npm i bootstrap
+
 # flexbox/grid
+
+# passing child content
+between <Com> and <Com />
+passed as special prop called children: JSX.Element
+
+# eslint setup 
+npm init @eslint/config 

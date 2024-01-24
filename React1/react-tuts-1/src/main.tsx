@@ -1,9 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import HomePage from './pages/HomePage.tsx'
+import CustomRouter from './pages/CustomRouter.tsx'
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+const root = document.getElementById('root')
+if (root === null) {
+  throw new Error('Root element not found')
+}
+ReactDOM.createRoot(root).render(
   <React.StrictMode>
-    <HomePage />
-  </React.StrictMode>,
+    <CustomRouter />
+  </React.StrictMode>
 )
