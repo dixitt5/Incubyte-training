@@ -160,3 +160,11 @@ passed as special prop called children: JSX.Element
 
 # eslint setup 
 npm init @eslint/config 
+
+npm i axios
+
+ctrl alt l
+
+ctrl w -> icrease scope, ctrl shift w
+
+ctrl space
