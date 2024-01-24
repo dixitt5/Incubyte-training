@@ -1,8 +1,7 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { PokeCard } from '../components/Card'
-import { type PokemonApi } from '../types/Pokemon'
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
-import { fetchPokemons } from '../PokeApi'
+import { usePokemonsApi } from '../hooks/usePokemonsApi'
 
 interface RouterProps {
   setRoute: (route: string) => void
@@ -10,18 +9,19 @@ interface RouterProps {
 
 function App ({ setRoute }: Readonly<RouterProps>): JSX.Element {
   const [index, setIndex] = useState<number>(0)
-  const [pokemons, setPokemons] = useState<PokemonApi[]>([])
-  const [isloading, setIsloading] = useState<boolean>(true)
+  // const [pokemons, setPokemons] = useState<PokemonApi[]>([])
+  // const [isloading, setIsloading] = useState<boolean>(true)
 
-  const getPokemons = async (): Promise<void> => {
-    const result = await fetchPokemons()
-    setPokemons(result)
-    setIsloading(false)
-  }
+  const { pokemons, isLoading, error } = usePokemonsApi()
+  // const getPokemons = async (): Promise<void> => {
+  //   const result = await fetchPokemons()
+  //   setPokemons(result)
+  //   setIsloading(false)
+  // }
 
-  useEffect(() => {
-    void getPokemons()
-  }, [])
+  // useEffect(() => {
+  //   void getPokemons()
+  // }, [])
 
   const changePokemon = (goForward: boolean): void => {
     if (goForward) {
@@ -39,8 +39,11 @@ function App ({ setRoute }: Readonly<RouterProps>): JSX.Element {
 
   return (
     <>
+        {
+      error !== null && (<div>{error.message}</div>)}
+
       {
-      isloading
+      isLoading
         // eslint-disable-next-line multiline-ternary
         ? (
         <div className="d-flex flex-column h-100 my-auto justify-content-center align-items-center">
