@@ -1,16 +1,16 @@
 import { MouseEventHandler, useEffect, useState } from "react";
 import { PokeCard } from "../components/Header";
-import { Pokemon } from "../types/Pokemon";
 import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import React from "react";
 import { fetchPokemons } from "./api";
+import { IPokemon } from "../models/Pokemon";
 
-function App() {
+function Home() {
   const [index, setIndex] = useState<number>(0);
-  const [pokemons, setPokemons] = useState<Pokemon[]>([]);
+  const [pokemons, setPokemons] = useState<IPokemon[]>([]);
 
   const effectCallBack = async () => { 
-    const response: Pokemon[] = await fetchPokemons();
+    const response: IPokemon[] = await fetchPokemons();
     setPokemons(response);
   }
 
@@ -21,7 +21,7 @@ function App() {
   const changePokemon = (goForward: boolean): MouseEventHandler | void => {
     if (goForward) {
       if (index === pokemons.length - 1) { 
-        alert("This was the last pokemon");
+        alert("This was the last IPokemon");
       } else {
         setIndex(index + 1);
       }
