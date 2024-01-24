@@ -1,10 +1,7 @@
 export interface IPokemon {
-    name: string,
-    type: PokeType[] | string[],
-    height: number,
-    weight: number,
-    imageUrl: string,
     id: number,
+    name: string,
+    url: string,
 }
 
 export enum PokeType {

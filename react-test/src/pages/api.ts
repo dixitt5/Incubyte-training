@@ -1,34 +1,13 @@
-import { IPokemon, PokeType } from "../models/Pokemon";
+import {IPokemon, PokeType} from "../models/Pokemon";
+import axios from "axios";
 
-const pokemons: IPokemon[] = [
-    {
-      id: 1,
-      name: "Pikachu",
-      weight: 20,
-      height: 20,
-      type: [PokeType[PokeType.fire], PokeType[PokeType.rock]],
-      imageUrl: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
-    },
-    {
-      id: 2,
-      name: "Bulbasour",
-      weight: 20,
-      height: 20,
-      type: [PokeType[PokeType.fire], PokeType[PokeType.other]],
-      imageUrl: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/5.png",
-    },
-    {
-      id: 3,
-      name: "Snorlax",
-      weight: 20,
-      height: 20,
-      type: [PokeType[PokeType.water]],
-      imageUrl: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10.png",
-    },
-  ];
-
-export const fetchPokemons = async () : Promise<IPokemon[]> => {
-    return new Promise((resolve) => {
-         resolve(pokemons);
-    });
+export const fetchPokemons = async (): Promise<IPokemon[]> => {
+    const pokemonData = (await axios.get(
+        "https://pokeapi.co/api/v2/pokemon/?limit=10")).data.results
+    return pokemonData.map((pokemon: IPokemon, index: number) => {
+        return {
+            ...pokemon,
+            id: index + 1,
+        }
+    })
 }
