@@ -8,7 +8,6 @@ interface PokeCardProps {
 }
 
 export const PokeCard = (props: PokeCardProps) => {
-    console.log(`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${props.pokemonObj.id}.png`)
     return <>
         {<div onClick={() => {
             props.setRoute(`about/${props.pokemonObj.id}`)

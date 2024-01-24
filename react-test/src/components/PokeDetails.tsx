@@ -7,12 +7,12 @@ interface  PokeDetailsProps {
     // generation: string,
 }
 
-async function getDetails(url: string) {
+export async function getDetails(url: string) {
     console.log((await axios.get(url)).data)
     const data = (await axios.get(url)).data;
     return  {name: data.name, id: data.id,} as PokeDetailsProps
 }
-export function PokeDetails( {url} : { url: string }): ReactElement {
+export function PokeDetails( {url, id, name} : { url: string, id: number, name : string }): ReactElement {
     const [pokemonDetails, setPokemonDetails] = useState<PokeDetailsProps>();
     useEffect(() => {
         getDetails(url).then((details) => {
@@ -28,9 +28,9 @@ export function PokeDetails( {url} : { url: string }): ReactElement {
                 <div>
                     <img
                         src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonDetails?.id}.png`}
-                        alt={pokemonDetails?.name} width={200}/>
+                        alt={name} width={200}/>
                 </div>
-                <div className="text-center">{pokemonDetails?.name}</div>
+                <div className="text-center">{name}</div>
                 {/*<div className="text-center">{pokemonDetails?.generation}</div>*/}
             </div>
         </>
