@@ -15,7 +15,7 @@ const Details = (): ReactElement => {
         {
           !isLoading
             ? (
-              <div className={`card w-25 mx-auto my-auto ${isDarkMode ? 'bg-primary text-light ' : ''} `}>
+              <div className={`card w-25 mx-auto my-auto ${isDarkMode ? 'bg-black text-light ' : ''} `}>
                 <img className="img-fluid mx-auto mb-4" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonDetails?.id}.png`} alt={pokemonDetails?.name} />
                 <h2 className='fs-3'>ID: {pokemonDetails?.id}</h2>
                 <h2 className='fs-3'>Name: {pokemonDetails?.name}</h2>

@@ -13,29 +13,6 @@ function App (): JSX.Element {
   // const [isloading, setIsloading] = useState<boolean>(true)
 
   const { pokemons, isLoading, error } = usePokemonsApi()
-  // const getPokemons = async (): Promise<void> => {
-  //   const result = await fetchPokemons()
-  //   setPokemons(result)
-  //   setIsloading(false)
-  // }
-
-  // useEffect(() => {
-  //   void getPokemons()
-  // }, [])
-
-  // const changePokemon = (goForward: boolean): void => {
-  //   if (goForward) {
-  //     if (index === pokemons.length - 1) {
-  //       alert('This was the last pokemon')
-  //     } else {
-  //       setIndex(index + 1)
-  //     }
-  //   } else if (index === 0) {
-  //     alert('This was the first pokemon')
-  //   } else {
-  //     setIndex(index - 1)
-  //   }
-  // }
 
   return (
     <>

@@ -3,7 +3,7 @@ import router from '../Routes'
 import { useState, type ReactElement } from 'react'
 import DarkModeContext from '../context/DarkModeContext'
 
-const Container = (): ReactElement => {
+const DarkModeProvider = (): ReactElement => {
   const [isDarkMode, setIsDarkMode] = useState<boolean>(false)
   return (
     <div>
@@ -14,4 +14,4 @@ const Container = (): ReactElement => {
   )
 }
 
-export default Container
+export default DarkModeProvider

@@ -1,18 +1,14 @@
-import { useEffect, type ReactElement, useState } from 'react'
+import { type ReactElement } from 'react'
 import Navbar from '../../components/Navbar'
 import { Outlet, useParams } from 'react-router-dom'
 
 const Layout = (): ReactElement => {
-  const { id } = useParams()
-  const flag: boolean = id?.length === 0
-  const [flagg, setFlagg] = useState(false)
+  const params = useParams()
+  const flag: boolean = params.id === undefined
 
-  useEffect(() => {
-    setFlagg(flag)
-  }, [flag])
   return (
     <div>
-      <Navbar flag={flagg}/>
+      <Navbar flag={flag}/>
       <Outlet/>
     </div>
   )
