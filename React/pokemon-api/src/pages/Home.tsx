@@ -4,7 +4,8 @@ import PokeCard from '../components/PokeCard.tsx'
 import { usePokemonApi } from '../hooks/usePokemonApi.ts'
 
 export const Home = (): ReactElement => {
-  const { pokemons, isLoading, error } = usePokemonApi(10)
+  // const { isDarkTheme } = useContext(ThemeContext)
+  const { pokemons, isLoading, error } = usePokemonApi(12)
 
   if (error != null) {
     return <div>{error}</div>

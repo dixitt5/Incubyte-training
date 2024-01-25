@@ -1,18 +1,21 @@
-import { type ReactElement } from 'react'
+import { type ReactElement, useContext } from 'react'
 import { type PokemonType } from '../interfaces/PokeType.ts'
 import { useNavigate } from 'react-router-dom'
+import ThemeContext from '../contexts/ThemeContext.ts'
 
 interface PokeCardProps {
   pokemon: PokemonType
 }
 
 function PokeCard (pokeObj: PokeCardProps): ReactElement {
+  const { isDarkTheme } = useContext(ThemeContext)
+
   const navigate = useNavigate()
   return (
         <>
             <div
                 className="card shadow-lg mb-4 mt-4"
-                style={{ width: '18rem', margin: '5px auto' }}
+                style={{ width: '18rem', margin: '5px auto', backgroundColor: isDarkTheme ? '#414141' : 'white', color: isDarkTheme ? 'white' : 'black' }}
                 onClick={() => { navigate(`${pokeObj.pokemon.id}`) }}
             >
                 <img
