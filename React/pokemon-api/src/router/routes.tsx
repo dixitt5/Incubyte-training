@@ -2,6 +2,7 @@ import { createBrowserRouter, Navigate } from 'react-router-dom'
 import { Home } from '../pages/Home.tsx'
 import { ErrorPage } from '../pages/error.tsx'
 import { PokeDetails } from '../components/PokeDetails.tsx'
+import { Layout } from '../pages/layout.tsx'
 
 export const routes = createBrowserRouter([
   {
@@ -10,6 +11,7 @@ export const routes = createBrowserRouter([
   },
   {
     path: 'pokemons',
+    element: <Layout/>,
     children: [
       {
         path: '',
