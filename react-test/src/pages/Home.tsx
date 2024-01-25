@@ -1,8 +1,8 @@
 import { type ReactElement } from 'react'
-import '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import { type IPokemon } from '../models/Pokemon'
 import { PokeCard } from '../components/PokeCard'
 import { usePokemonApi } from '../hooks/usePokemonApi'
+import  "../index.css"
 
 function Home (): ReactElement {
   const {
@@ -12,16 +12,16 @@ function Home (): ReactElement {
   return (
         <>
             {isLoading
-              ? <div className="d-flex justify-content-center align-items-center">
+              ? <div className="flex justify-content-center align-items-center">
                     <div className="spinner-border" role="status">
                         <span className="visually-hidden">Loading...</span>
                     </div>
                 </div>
 
-              : <div className="d-flex justify-content-center">
+              : <div className="flex justify-center">
 
-                    <div className="container">
-                        <div className="row">
+                    <div className="flex flex-wrap justify-center">
+
                             {pokemons.length > 0
                               ? (
                                   pokemons.map((pokemon: IPokemon) => (
@@ -34,7 +34,6 @@ function Home (): ReactElement {
 
                                     <div>Loading...</div>
                                 )}
-                        </div>
 
                     </div>
                 </div>

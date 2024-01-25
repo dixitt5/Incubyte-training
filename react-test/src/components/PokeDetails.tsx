@@ -23,19 +23,17 @@ export function PokeDetails (): ReactElement {
       setPokemonDetails(details)
     })
   }, [])
-  console.log(pokemonDetails)
   return (
-
-        <>
-            <div className="card  bg-light p-3">
-                <div className="d-flex justify-content-center">
+        <div className="flex justify-center">
+            <div className="mx-8 py-12 rounded-md shadow-lg bg-amber-50 p-1 h-[500px] w-[400px] rounded-2xl">
+                <div className="flex justify-center">
                     <img
                         src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`}
-                        alt={pokemonDetails?.name} width={200}/>
+                        alt={pokemonDetails?.name} width={350}/>
                 </div>
-                <div className="text-center">{pokemonDetails?.name}</div>
+                <div className="text-4xl text-center underline-offset-2">name: {pokemonDetails?.name}</div>
                 {/* <div className="text-center">{pokemonDetails?.generation}</div> */}
             </div>
-        </>
+        </div>
   )
 }

@@ -12,13 +12,13 @@ export const PokeCard = (props: PokeCardProps): ReactElement => {
         {<div onClick={() => {
           navigate(`${props.pokemonObj.id}`)
         }}>
-            <div className="card bg-light p-3">
+            <div className="mx-8 rounded-sm shadow-lg bg-amber-50 p-4">
                 <div>
                     <img
                         src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${props.pokemonObj.id}.png`}
                         alt={props.pokemonObj.name} width={200}/>
                 </div>
-                <div className="text-center">{props.pokemonObj.name}</div>
+                <div className="text-xl text-center">{props.pokemonObj.name}</div>
             </div>
 
         </div>}
