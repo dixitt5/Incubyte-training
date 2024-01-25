@@ -1,20 +1,10 @@
-import React from "react";
-import { IPokemon } from "../models/Pokemon";
+import React from 'react'
+import { type ReactElement } from 'react'
 
-
-export type PokemonProps = {
-  pokemon: IPokemon;
-};
-
-export function Header({ pokemon }: PokemonProps) {
-  const {id,url, name} = pokemon;
+export function Header ({ flag }: { flag: boolean }): ReactElement {
   return (
-    <div className="card my-4 mx-auto shadow-md">
-      <div className="card-body text-center py-5">
-        <img className="img-fluid mx-auto d-block mb-4" src={url} alt={name} />
-        <h2> <span>#{id} </span>{name}</h2>
-
-      </div>
-    </div>
-  );
+    <>
+      <h1>Pokemon { flag ? 'Home' : 'Details' }</h1>
+    </>
+  )
 }

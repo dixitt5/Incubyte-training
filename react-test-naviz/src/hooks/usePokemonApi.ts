@@ -1,37 +1,34 @@
-import {PokemonProps} from "../components/Header";
-import {useEffect, useState} from "react";
-import {fetchPokemons} from "../pages/api";
-import {IPokemon} from "../models/Pokemon";
+import { useEffect, useState } from 'react'
+import { fetchPokemons } from '../pages/api'
+import { type IPokemon } from '../models/Pokemon'
 
-export function usePokemonApi(): {
-    pokemons: IPokemon[],
-    isLoading: boolean,
-    error: any
+export function usePokemonApi (): {
+  pokemons: IPokemon[]
+  isLoading: boolean
+  error: any
 } {
+  const [pokemons, setPokemons] = useState<IPokemon[]>([])
+  const [isLoading, setIsLoading] = useState<boolean>(true)
+  const [error, setError] = useState<any>(null)
 
-    const [pokemons, setPokemons] = useState<IPokemon[]>([])
-    const [isLoading, setIsLoading] = useState<boolean>(true)
-    const [error, setError] = useState<any>(null);
-
-    useEffect(() => {
-        fetchPokemons()
-            .then((pokemons) => {
-                const modifiedPokemons = pokemons.map((pokemon: IPokemon, index: number) => {
-                    return {
-                        ...pokemon,
-                        "id": index + 1,
-                    }
-                })
-                console.log('<<<<<', modifiedPokemons)
-
-                setPokemons(modifiedPokemons)
-                setIsLoading(false)
-                setError(null)
-            }).catch((err) => {
-            setPokemons([])
-            setIsLoading(false)
-            setError(err);
+  useEffect(() => {
+    fetchPokemons()
+      .then((pokemons) => {
+        const modifiedPokemons = pokemons.map((pokemon: IPokemon, index: number) => {
+          return {
+            ...pokemon,
+            id: index + 1
+          }
         })
-    }, []);
-    return {pokemons, isLoading, error};
+
+        setPokemons(modifiedPokemons)
+        setIsLoading(false)
+        setError(null)
+      }).catch((err) => {
+        setPokemons([])
+        setIsLoading(false)
+        setError(err)
+      })
+  }, [])
+  return { pokemons, isLoading, error }
 }

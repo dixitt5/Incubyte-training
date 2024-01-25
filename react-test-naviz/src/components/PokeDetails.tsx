@@ -10,7 +10,6 @@ interface PokeDetailsProps {
 
 export async function getDetails (id: number): Promise<PokeDetailsProps> {
   const url = `https://pokeapi.co/api/v2/pokemon/${id}`
-  console.log((await axios.get(url)).data)
   const data = (await axios.get(url)).data
 
   const obj: PokeDetailsProps = { name: data.name, id: data.id }

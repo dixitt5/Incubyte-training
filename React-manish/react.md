@@ -167,6 +167,8 @@ passed as special prop called children: JSX.Element
 - ctrl w -> increase scope, ctrl shift w -> decrease scope of select
 - ctrl space -> suggestions
 - shift shift -> search
+- shift fn f6 -> rename
+- live templates 
 
 # axios
 - npm i axios
@@ -185,6 +187,7 @@ passed as special prop called children: JSX.Element
         path:
         element:
         children: 
+        errorElement:
 
     }, 
     {
@@ -196,4 +199,75 @@ passed as special prop called children: JSX.Element
 
 - useParams() > returns params
 
-- <RouterProvider />
+- <RouterProvider /> to wrap the router
+
+- <Navigate to>
+
+- advantage
+url changes
+built in methods
+query params
+error fallback
+useNavigate()
+outlet
+
+# global state management
+change one component on change in another
+prop drilling
+
+RouteContext
+createContext
+
+RouteContext.Provider
+useContext(RouteContext)
+
+# interceptors
+
+- intercept request before it goes out of app
+- axios.interceptors.request.use()
+
+
+# bundler 
+- minify the code and used dependencies
+
+# swc
+- compiler that converts ts to js for all browsers
+- based on rust
+
+# public
+serve public folder without restriction
+server runs on src folder
+directly available in url
+
+# vite 
+serves all files and bundles dependency
+
+# webpack
+bundles every file
+
+# browser
+automaticaly bundles ts to js
+
+# create prod build
+npm run build
+creates dist folder after bundling
+images are put as it is in dist folder, could use cdn for them
+
+# npm run preview
+uses dist folder to display the preview of prod build
+
+# accessibility
+- button - read by screen reader during hover -> aria-label
+
+# responsiveness
+
+# bootstrap
+css framework and js library
+
+bootstrap includes full file in the final build, used or not
+component based
+
+# tailwind
+tailwind bundles efficiently
+high customization
+
