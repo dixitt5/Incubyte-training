@@ -1,12 +1,14 @@
-import { useState } from 'react'
+import { useContext } from 'react'
 import { PokeCard } from '../components/Card'
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import { usePokemonsApi } from '../hooks/usePokemonsApi'
 import { useNavigate } from 'react-router-dom'
+import DarkModeContext from '../context/DarkModeContext'
 
 function App (): JSX.Element {
-  const [index, setIndex] = useState<number>(0)
+  // const [index, setIndex] = useState<number>(0)
   const navigate = useNavigate()
+  const { isDarkMode } = useContext(DarkModeContext)
   // const [pokemons, setPokemons] = useState<PokemonApi[]>([])
   // const [isloading, setIsloading] = useState<boolean>(true)
 
@@ -21,19 +23,19 @@ function App (): JSX.Element {
   //   void getPokemons()
   // }, [])
 
-  const changePokemon = (goForward: boolean): void => {
-    if (goForward) {
-      if (index === pokemons.length - 1) {
-        alert('This was the last pokemon')
-      } else {
-        setIndex(index + 1)
-      }
-    } else if (index === 0) {
-      alert('This was the first pokemon')
-    } else {
-      setIndex(index - 1)
-    }
-  }
+  // const changePokemon = (goForward: boolean): void => {
+  //   if (goForward) {
+  //     if (index === pokemons.length - 1) {
+  //       alert('This was the last pokemon')
+  //     } else {
+  //       setIndex(index + 1)
+  //     }
+  //   } else if (index === 0) {
+  //     alert('This was the first pokemon')
+  //   } else {
+  //     setIndex(index - 1)
+  //   }
+  // }
 
   return (
     <>
@@ -44,7 +46,7 @@ function App (): JSX.Element {
       isLoading
         // eslint-disable-next-line multiline-ternary
         ? (
-        <div className="d-flex flex-column h-100 my-auto justify-content-center align-items-center">
+        <div className={`${isDarkMode ? 'bg-secondary text-light' : ''} d-flex flex-column h-100 my-auto justify-content-center align-items-center`}>
             <div
               className="spinner-border text-primary me-2"
               role="output"
@@ -53,23 +55,22 @@ function App (): JSX.Element {
             <h3 className="mb-0">Loading...</h3>
           </div>
           ) : (
-        <div>
+        <div className={`${isDarkMode ? 'bg-dark text-light' : ''}` }>
           <div className="container">
             <div className="row row-cols-5">
               {/* Adjust number of columns as needed */}
               {pokemons.map((pokemon) => (
                 <div className="col" style={{ cursor: 'pointer' }} key={pokemon.id} onClick={ () => {
-                  navigate(`/${pokemon.id}`)
+                  navigate(`${pokemon.id}`)
                 }}>
                   <PokeCard pokemon={pokemon} />
                 </div>
               ))}
             </div>
           </div>
-          {/* <PokeCard pokemon={pokemons[index]} /> */}
-          <div className="d-flex justify-content-center mb-3">
+          {/* Buttons- Next Previous Change Route */}
+          {/* <div className="d-flex justify-content-center mb-3">
             <div className="btn-group" role="group" aria-label="Basic example">
-              {/* {index > 0 && ( */}
               <button
                 type="button"
                 className="btn btn-outline-primary"
@@ -79,9 +80,6 @@ function App (): JSX.Element {
               >
                 Prev
               </button>
-              {/* )} */}
-
-              {/* {index < pokemons.length - 1 && ( */}
               <button
                 type="button"
                 className="btn btn-outline-primary"
@@ -91,12 +89,11 @@ function App (): JSX.Element {
               >
                 Next
               </button>
-              {/* )} */}
               <button>
                 Change Route
               </button>
             </div>
-          </div>
+          </div> */}
         </div>
           )}
     </>

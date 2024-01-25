@@ -133,3 +133,10 @@ export const usePokemonsApi = (): {
 
 - you have to provide types according to the data got from API, so first you have to test the APIs.
 
+### React-router-dom
+
+> Helps to route pages efficiently.
+
+- useNavigate() - route to page with onClick functionality
+- useParams() - use query params in components
+
