@@ -22,6 +22,8 @@ export const usePokemonDetails = (id: number): {
   }
   useEffect(() => {
     void fetchPokemonDetails().then((data: PokeType) => {
+      console.log('Data')
+      console.log(data)
       setPokemon(data)
       setIsLoading(false)
       setError(null)
