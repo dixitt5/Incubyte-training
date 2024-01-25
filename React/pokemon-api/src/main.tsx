@@ -1,7 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
 import '../node_modules/bootstrap/dist/css/bootstrap.css'
+import { RouterProvider } from 'react-router-dom'
+import { routes } from './router/routes.tsx'
 
 const root = document.getElementById('root')
 if (root === null) {
@@ -9,6 +10,6 @@ if (root === null) {
 }
 ReactDOM.createRoot(root).render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={routes} />
   </React.StrictMode>
 )

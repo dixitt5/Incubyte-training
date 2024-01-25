@@ -1,9 +1,11 @@
 import { type ReactElement } from 'react'
 import { type AbilityDetails } from '../interfaces/PokemonAbilityDetails.ts'
 import { usePokemonDetails } from '../hooks/usePokemonDetails.ts'
+import { useParams } from 'react-router-dom'
 
-export const PokeDetails = ({ id }: { id: number }): ReactElement => {
-  const { pokemon, isLoading, error } = usePokemonDetails(id)
+export const PokeDetails = (): ReactElement => {
+  const { id } = useParams()
+  const { pokemon, isLoading, error } = usePokemonDetails(+(id ?? 0))
   if (error != null) {
     return <div>{error}</div>
   }
