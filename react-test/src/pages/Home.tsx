@@ -2,13 +2,11 @@ import { useState } from 'react'
 import { PokeCard } from '../components/Card'
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import { usePokemonsApi } from '../hooks/usePokemonsApi'
+import { useNavigate } from 'react-router-dom'
 
-interface RouterProps {
-  setRoute: (route: string) => void
-}
-
-function App ({ setRoute }: Readonly<RouterProps>): JSX.Element {
+function App (): JSX.Element {
   const [index, setIndex] = useState<number>(0)
+  const navigate = useNavigate()
   // const [pokemons, setPokemons] = useState<PokemonApi[]>([])
   // const [isloading, setIsloading] = useState<boolean>(true)
 
@@ -61,7 +59,7 @@ function App ({ setRoute }: Readonly<RouterProps>): JSX.Element {
               {/* Adjust number of columns as needed */}
               {pokemons.map((pokemon) => (
                 <div className="col" style={{ cursor: 'pointer' }} key={pokemon.id} onClick={ () => {
-                  setRoute(`details/${pokemon.id}`)
+                  navigate(`/${pokemon.id}`)
                 }}>
                   <PokeCard pokemon={pokemon} />
                 </div>

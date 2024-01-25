@@ -1,10 +1,10 @@
 import { type ReactElement } from 'react'
 import { usePokemonDetails } from '../hooks/usePokemonDetails'
+import { useParams } from 'react-router-dom'
 
-interface PokemonId { id: number }
-
-const Details = ({ id }: PokemonId): ReactElement => {
+const Details = (): ReactElement => {
   // const [pokemon, setPokemon] = useState<PokemonDetailsApi>()
+  const { id } = useParams()
 
   // const getPokemon = async (id: number): Promise<void> => {
   //   const result = await fetchPokemonDetails(id)
@@ -16,7 +16,7 @@ const Details = ({ id }: PokemonId): ReactElement => {
   //   void getPokemon(id)
   // }, [])
 
-  const { pokemonDetails, isLoading, error } = usePokemonDetails(id)
+  const { pokemonDetails, isLoading, error } = usePokemonDetails(Number(id))
 
   return (
     <div className='text-center'>
