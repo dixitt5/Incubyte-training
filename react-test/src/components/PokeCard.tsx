@@ -1,16 +1,16 @@
-
-import React from "react"
-import { IPokemon } from "../models/Pokemon"
+import React, { type ReactElement } from 'react'
+import { type IPokemon } from '../models/Pokemon'
+import { useNavigate } from 'react-router-dom'
 
 interface PokeCardProps {
-    pokemonObj : IPokemon
-    setRoute: (route: string) => void
+  pokemonObj: IPokemon
 }
 
-export const PokeCard = (props: PokeCardProps) => {
-    return <>
+export const PokeCard = (props: PokeCardProps): ReactElement => {
+  const navigate = useNavigate()
+  return <>
         {<div onClick={() => {
-            props.setRoute(`about/${props.pokemonObj.id}`)
+          navigate(`${props.pokemonObj.id}`)
         }}>
             <div className="card bg-light p-3">
                 <div>
