@@ -1,7 +1,0 @@
-{
-  "dependencies": {
-    "mocha": "^10.2.0",
-    "tsc": "^2.0.4",
-    "typescript": "^5.3.3"
-  }
-}
