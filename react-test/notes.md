@@ -140,3 +140,43 @@ export const usePokemonsApi = (): {
 - useNavigate() - route to page with onClick functionality
 - useParams() - use query params in components
 
+### Context API
+
+- Provider : wraps the parent element to provide props to other children components
+- Consumer : for using the data from the context
+
+```typescript
+// createContext(props) - to create contexts lol
+import { createContext } from 'react'
+
+export interface ContextParameters {
+  isDarkMode: boolean
+  setIsDarkMode: (isDarkMode: boolean | ((isDarkMode: boolean) => boolean)) => void
+}
+
+export default createContext<ContextParameters>({
+  isDarkMode: false,
+  setIsDarkMode: () => {}
+})
+
+//useContext() - to use the context
+ const { isDarkMode, setIsDarkMode } = useContext(DarkModeContext)
+
+//wrapper provider
+const Container = (): ReactElement => {
+  const [isDarkMode, setIsDarkMode] = useState<boolean>(false)
+  return (
+    <div>
+        <DarkModeContext.Provider value={{ isDarkMode, setIsDarkMode }}>
+            <RouterProvider router={router}/>
+        </DarkModeContext.Provider>
+    </div>
+  )
+}
+
+export default Container
+```
+
+### Interceptors 
+
+> works like middleware for APIs in backend.
