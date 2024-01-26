@@ -17,12 +17,27 @@ export const addResponseInterceptors = (): void => {
       response.data = responsePokemonData
       return response
     } else {
-      // specific one
-      // const { height, url, weight, name, abilities } = response.data
-      // console.log('Type of Abilities', typeof abilities)
-      // const abs = abilities.map((ele: any) => ele.ability.name)
-      // response.data = { height, url, weight, name, abs }
-      return response
+    const {height, url, weight, name, abilities} = response.data
+            console.log({
+                height, url, weight, name, abilities
+            })
+
+            const abilityDetails: AbilityDetails[] = []
+            abilities.map((ele: AbilityDetails) => {
+                abilityDetails.push({
+                    ability: ele.ability,
+                    is_hidden: ele.is_hidden
+                })
+            })
+
+            response.data = {
+                name,
+                url,
+                weight,
+                abilities: abilityDetails,
+                height,
+            }
+            return response
     }
   })
 }
