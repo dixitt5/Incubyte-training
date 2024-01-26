@@ -35,7 +35,6 @@ export const PokeDetails = (): ReactElement => {
                         </h5>
                         <p className="mb-4 text-base">
                             Height: {pokemon.height} | Weight: {pokemon.weight}
-                            <hr/>
                             {pokemon.abilities.map((ab: AbilityDetails, index: number) => (
                                 <span key={index}>{ab.ability.name}, </span>))
                             }

@@ -5,7 +5,7 @@ import axios from 'axios'
 export const usePokemonDetails = (id: number): {
   pokemon: PokeType
   isLoading: boolean
-  error: any
+  error: Error | null
 } => {
   const [pokemon, setPokemon] = useState<PokeType>({
     url: '',
@@ -15,19 +15,17 @@ export const usePokemonDetails = (id: number): {
     abilities: []
   })
   const [isLoading, setIsLoading] = useState<boolean>(true)
-  const [error, setError] = useState<any>(null)
+  const [error, setError] = useState<Error | null>(null)
 
   async function fetchPokemonDetails (): Promise<PokeType> {
     return (await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`)).data
   }
   useEffect(() => {
     void fetchPokemonDetails().then((data: PokeType) => {
-      console.log('Data')
-      console.log(data)
       setPokemon(data)
       setIsLoading(false)
       setError(null)
-    }).catch((error: any) => {
+    }).catch((error: Error | null) => {
       setPokemon({
         url: '',
         weight: 0,
