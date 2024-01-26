@@ -1,6 +1,5 @@
 import { useContext } from 'react'
 import { PokeCard } from '../components/Card'
-import '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import { usePokemonsApi } from '../hooks/usePokemonsApi'
 import { useNavigate } from 'react-router-dom'
 import DarkModeContext from '../context/DarkModeContext'
@@ -32,12 +31,12 @@ function App (): JSX.Element {
             <h3 className="mb-0">Loading...</h3>
           </div>
           ) : (
-        <div className={`${isDarkMode ? 'bg-dark text-light' : ''}` }>
-          <div className="container">
-            <div className="row row-cols-5">
+        <div className={`${isDarkMode ? 'dark:bg-white' : ''}` }>
+          <div className="p-2 mx-4">
+            <div className="grid grid-cols-5 gap-3">
               {/* Adjust number of columns as needed */}
               {pokemons.map((pokemon) => (
-                <div className="col" style={{ cursor: 'pointer' }} key={pokemon.id} onClick={ () => {
+                <div className="" key={pokemon.id} onClick={ () => {
                   navigate(`${pokemon.id}`)
                 }}>
                   <PokeCard pokemon={pokemon} />
