@@ -14,7 +14,7 @@ function PokeCard (pokeObj: PokeCardProps): ReactElement {
   return (
         <>
             <div
-                className="card shadow-lg mb-4 mt-4"
+                className="card shadow-lg rounded p-4 text-center"
                 style={{ width: '18rem', margin: '5px auto', backgroundColor: isDarkTheme ? '#414141' : 'white', color: isDarkTheme ? 'white' : 'black' }}
                 onClick={() => { navigate(`${pokeObj.pokemon.id}`) }}
             >
@@ -24,9 +24,9 @@ function PokeCard (pokeObj: PokeCardProps): ReactElement {
                     alt={pokeObj.pokemon.url}
                 />
                 <div className="card-body">
-                    <h5 className="card-title">{pokeObj.pokemon.name}</h5>
+                    <h5 className="font-bold text-lg">{pokeObj.pokemon.name}</h5>
                     <ul className="list-group list-group-flush">
-                        <a href={''} className="text-decoration-none">
+                        <a href={''} className="text-decoration-none text-blue-500">
                             Link
                         </a>
                     </ul>

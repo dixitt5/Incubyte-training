@@ -16,7 +16,7 @@ export const Home = (): ReactElement => {
           {isLoading
             ? <div className="spinner-border text-primary" role="status">
               </div>
-            : <div className="text-3xl font-bold underline">
+            : <div className="grid grid-cols-4 gap-4">
                 {pokemons.map((pokemon: PokemonType, index: number) => (
                     <PokeCard key={index} pokemon={{ ...pokemon, id: index + 1 }}/>))}
               </div>
