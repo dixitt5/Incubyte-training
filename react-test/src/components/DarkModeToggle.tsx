@@ -19,7 +19,7 @@ const DarkModeToggle = (): ReactElement => {
       >
         <div className="relative h-10 w-10" onClick={() => { setTheme(colorTheme) }}>
           {
-            theme === 'light'
+            theme !== 'light'
               ? <img src="https://cdn0.iconfinder.com/data/icons/multimedia-solid-30px/30/moon_dark_mode_night-256.png" height={40} width={40} alt='darkmode'/>
               : <img src="https://cdn1.iconfinder.com/data/icons/weather-306/100/Icon_13-2-61_1-256.png" height={60} width={60} alt='lightmode'/>
           }
