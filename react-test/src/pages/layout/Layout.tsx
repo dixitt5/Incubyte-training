@@ -7,7 +7,7 @@ const Layout = (): ReactElement => {
   const flag: boolean = params.id === undefined
 
   return (
-    <div>
+    <div className='h-[100vh]'>
       <Navbar flag={flag}/>
       <Outlet/>
     </div>

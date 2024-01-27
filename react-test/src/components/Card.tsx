@@ -12,12 +12,12 @@ function capitalisedName (name: string): string {
 export function PokeCard ({ pokemon }: Readonly<PokemonProps>): ReactElement {
   const { id, url, name } = pokemon
   return (
-    <div className="my-4 mx-auto shadow-md rounded-md hover:shadow-md cursor-pointer bg-white text-black">
+    <div className="my-4 mx-auto shadow-md rounded-md hover:shadow-md cursor-pointer bg-white dark:bg-gray-300 text-black">
       <div className="card-body text-center py-5">
         <img className="img-thumbnail mx-auto d-block mb-4" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`} alt={name} />
         <h2 className='text-md'>
-           <span className='bg-teal-600 text-white rounded-md p-0.5 pl-1 mr-1'>#{id} </span>
-           <a href={url} target='_blank' rel='noreferrer' className='font-semibold dark:text-red-600'>{capitalisedName(name)}
+           <span className='bg-teal-600 dark:bg-teal-800 text-white rounded-md p-0.5 pl-1 mr-1'>#{id} </span>
+           <a href={url} target='_blank' rel='noreferrer' className='font-semibold dark:text-black'>{capitalisedName(name)}
            </a>
            </h2>
 

@@ -31,14 +31,14 @@ function App (): JSX.Element {
             <h3 className="mb-0">Loading...</h3>
           </div>
           ) : (
-        <div className={`${isDarkMode ? 'dark:bg-white' : ''}` }>
+        <div className="bg-white dark:bg-gray-700">
           <div className="p-2 mx-4">
-            <div className="grid grid-cols-5 gap-3">
+            <div className="grid lg:grid-cols-5 gap-3 md:grid-cols-3">
               {/* Adjust number of columns as needed */}
               {pokemons.map((pokemon) => (
-                <div className="" key={pokemon.id} onClick={ () => {
+                <div key={pokemon.id} onClick={() => {
                   navigate(`${pokemon.id}`)
-                }}>
+                } }>
                   <PokeCard pokemon={pokemon} />
                 </div>
               ))}
