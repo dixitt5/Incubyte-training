@@ -4,6 +4,11 @@ export interface IPokemon {
   url: string
 }
 
+export interface IPokemonDetails {
+  id: number
+  name: string
+}
+
 export enum PokeType {
   water,
   land,

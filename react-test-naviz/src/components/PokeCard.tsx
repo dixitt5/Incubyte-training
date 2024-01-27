@@ -8,19 +8,26 @@ interface PokeCardProps {
 
 export const PokeCard = (props: PokeCardProps): ReactElement => {
   const navigate = useNavigate()
-  return <>
-        {<div onClick={() => {
-          navigate(`/pokemons/${props.pokemonObj.id}`)
-        }}>
-            <div className="card bg-light p-3">
-                <div>
-                    <img
-                        src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${props.pokemonObj.id}.png`}
-                        alt={props.pokemonObj.name} width={200}/>
-                </div>
-                <div className="text-center">{props.pokemonObj.name}</div>
-            </div>
+  return (
+        <>
+            {
+                <div
+                    onClick={() => {
+                      navigate(`/pokemons/${props.pokemonObj.id}`)
+                    }}
+                    className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+                >
+                    <img className="p-4 rounded-t-lg"
+                         src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${props.pokemonObj.id}.png`}
+                         alt={props.pokemonObj.name}/>
 
-        </div>}
+                    <div className="px-5 pb-5">
+                        <div className="flex items-center justify-center">
+                            <span className="font-bold text-gray-900 dark:text-white text-xs sm:text-xl break-all uppercase">{props.pokemonObj.name}</span>
+                        </div>
+                    </div>
+                </div>
+            }
         </>
+  )
 }

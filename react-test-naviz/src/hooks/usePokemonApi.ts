@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { fetchPokemons } from '../pages/api'
+import fetchPokemons from '../api/fetchPokemons'
 import { type IPokemon } from '../models/Pokemon'
 
 export function usePokemonApi (): {
@@ -30,5 +30,9 @@ export function usePokemonApi (): {
         setError(err)
       })
   }, [])
-  return { pokemons, isLoading, error }
+  return {
+    pokemons,
+    isLoading,
+    error
+  }
 }

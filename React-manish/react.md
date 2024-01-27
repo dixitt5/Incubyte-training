@@ -267,7 +267,20 @@ css framework and js library
 bootstrap includes full file in the final build, used or not
 component based
 
+npm un bootstrap
+
 # tailwind
 tailwind bundles efficiently
 high customization
 
+dark theme
+sys theme
+responsive
+grid/flexbox
+
+# hw
+
+- implement search and pagination - api with name (full search) | api with offset
+- convert to tailwind | responsive | dark and light (without context)
+- custom styles in tailwind in the config file (ml-md, ml-sm etc.)
+- clone social media page (for css) [optional]

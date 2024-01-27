@@ -8,24 +8,28 @@ import HomeLayout from './HomeLayout'
 export const router = createBrowserRouter([
   {
     path: 'pokemons',
-    element: <HomeLayout />,
+    element: <HomeLayout/>,
     children: [
       {
         path: '',
-        element: <Home />
+        element: <Home/>
       },
       {
         path: ':id',
-        element: <PokeDetails />
+        element: <PokeDetails/>
+      },
+      {
+        path: 'search/:name',
+        element: <PokeDetails/>
       }
     ]
   },
   {
     path: '/',
-    element: <Navigate to='/pokemons' />
+    element: <Navigate to='/pokemons'/>
   },
   {
     path: '*',
-    element: <ErrorPage />
+    element: <ErrorPage/>
   }
 ])
