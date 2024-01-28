@@ -21,27 +21,27 @@ export function PokeDetails (): ReactElement {
             {!isLoading
               ? (error === null
                   ? (<>
-                            <div className="flex flex-col items-center justify-center mt-5 mx-2">
-                                <div
-                                    className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                                    <img className="p-4 rounded-t-lg"
-                                         src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon?.id}.png`}
-                                         alt={pokemon?.name}/>
+                          <div className="flex flex-col items-center justify-center mt-5 mx-2">
+                            <div
+                                className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                              <img className="p-4 rounded-t-lg"
+                                   src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon?.id}.png`}
+                                   alt={pokemon?.name}/>
 
-                                    <div className="px-5 pb-5">
-                                        <div className="flex items-center justify-center">
-                                        <span
-                                            className="font-bold text-gray-900 dark:text-white text-md break-all uppercase">{pokemon?.name} </span>
-                                        </div>
-                                    </div>
+                              <div className="px-5 pb-5">
+                                <div className="flex items-center justify-center">
+                                  <span
+                                      className="font-bold text-gray-900 dark:text-white text-md break-all uppercase">{pokemon?.name} </span>
                                 </div>
-                                <button
-                                    className="mt-3 text-green-700 hover:text-white border border-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-green-500 dark:text-green-500 dark:hover:text-white dark:hover:bg-green-600 dark:focus:ring-green-800"
-                                    onClick={() => {
-                                      navigate('/pokemons')
-                                    }}>Go Back
-                                </button>
+                              </div>
                             </div>
+                            <button
+                                className="mt-3 text-green-700 hover:text-white border border-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-green-500 dark:text-green-500 dark:hover:text-white dark:hover:bg-green-600 dark:focus:ring-green-800"
+                                onClick={() => {
+                                  navigate('/pokemons')
+                                }}>Go Back
+                            </button>
+                          </div>
 
                         </>)
                   : (<div className="text-3xl font-bold text-center mt-3">

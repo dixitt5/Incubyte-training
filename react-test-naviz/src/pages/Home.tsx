@@ -1,19 +1,33 @@
-import React, { type ReactElement } from 'react'
+import React, { type ReactElement, useEffect, useState } from 'react'
 // import '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import { type IPokemon } from '../models/Pokemon'
 import { PokeCard } from '../components/PokeCard'
-import { usePokemonApi } from '../hooks/usePokemonApi'
 import SearchPokemon from '../components/SearchPokemon'
+import Pagination from '../components/Pagination'
+import usePaginatedPokemonApi from '../hooks/usePaginatedPokemonApi'
 
 function Home (): ReactElement {
+  // const {
+  //   pokemons,
+  //   isLoading
+  // } = usePokemonApi()
+  const [currentPage, setCurrentPage] = useState(1)
+  const itemsPerPage = 15
+  const firstItemIndex = (currentPage - 1) * itemsPerPage
+
   const {
     pokemons,
-    isLoading
-  } = usePokemonApi()
+    isLoading,
+    totalPokemons
+  } = usePaginatedPokemonApi({
+    itemsPerPage,
+    firstItemIndex,
+    currentPage
+  })
 
   return (
         <>
-            <SearchPokemon />
+            <SearchPokemon/>
             {isLoading
               ? <div className="text-center mt-5">
                     <div role="status">
@@ -41,6 +55,7 @@ function Home (): ReactElement {
                     }
                 </div>
             }
+            <Pagination totalItems={totalPokemons} itemsPerPage={itemsPerPage} currentPage={currentPage} setCurrentPage={setCurrentPage}/>
         </>
   )
 }
