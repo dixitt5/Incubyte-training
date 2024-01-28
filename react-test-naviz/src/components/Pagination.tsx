@@ -26,7 +26,7 @@ const Pagination = (props: IPaginationProps): ReactElement => {
                     <button onClick={() => {
                       setCurrentPage(i)
                     }}
-                            className={'flex items-center justify-center px-2 h-7 sm:px-3 sm:h-8 leading-tight text-gray-500 border border-gray-300 hover:bg-green-500 hover:text-white dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white' + (currentPage === i ? ' bg-green-500 text-white' : '')}> {i}
+                            className={'flex items-center justify-center px-2 h-7 sm:px-3 sm:h-8 leading-tight text-gray-500 border border-gray-300 hover:bg-green-500 hover:text-white dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white' + (currentPage === i ? ' bg-green-500 text-white dark:bg-gray-800' : '')}> {i}
                     </button>
                 </li>
       )
