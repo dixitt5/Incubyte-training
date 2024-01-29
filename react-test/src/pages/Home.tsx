@@ -58,8 +58,9 @@ function App (): JSX.Element {
   useEffect(() => {
     const fetchPokemons = (): void => {
       setIsLoading(true)
-      axios.get('https://pokeapi.co/api/v2/pokemon?limit=10&offset=0').then((response) => {
-        const pokes: PokemonApi[] = response.data.results.map((p: PokemonApi, index: number) => ({ ...p, id: index + 1 }))
+      axios.get('http://localhost:3001/pokemons/results').then((response) => {
+        console.log(response.data)
+        const pokes: PokemonApi[] = response.data.map((p: PokemonApi, index: number) => ({ ...p, id: index + 1 }))
         setPokemons(pokes)
         setIsLoading(false)
       }).catch((error) => {

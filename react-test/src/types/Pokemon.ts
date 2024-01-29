@@ -20,6 +20,17 @@ export interface PokemonDetailsApi extends PokemonApi {
   abilities: string[]
 }
 
+export interface Ability {
+  name: string
+  url: string
+}
+
+export interface PokemonAbilityDetailsApi {
+  ability: Ability
+  is_hidden: boolean
+  slot: number
+}
+
 export enum PokemonType {
   Water,
   Fire,

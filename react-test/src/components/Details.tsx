@@ -9,6 +9,9 @@ function capitalisedName (name: string): string {
 const Details = (): ReactElement => {
   const { id } = useParams()
   const { pokemonDetails, isLoading, error } = usePokemonDetails(Number(id))
+  const ab: string[] = pokemonDetails.abilities.map((abb) => {
+    return (abb.ability.name + ' ')
+  })
   return (
     <div className="flex flex-col items-center text-light h-[100%] dark:bg-gray-700 bg-white justify-center">
         {/* <h1>Pokemon Details</h1> */}
@@ -24,9 +27,7 @@ const Details = (): ReactElement => {
                 <h2 className='text-xl font-semibold'><span className='font-bold'>Base Experience:</span> {pokemonDetails?.baseExperience}</h2>
                 <h2 className='text-xl font-semibold'><span className='font-bold'>Height:</span> {pokemonDetails?.height}</h2>
                 <h2 className='text-xl font-semibold'><span className='font-bold'>Weight:</span> {pokemonDetails?.weight}</h2>
-                <h2 className='text-xl font-semibold'><span className='font-bold'>Abilities</span>: {pokemonDetails?.abilities.map((ab) => {
-                  return [ab + ' ']
-                })}</h2>
+                <h2 className='text-xl font-semibold'><span className='font-bold'>Abilities</span>: {ab}</h2>
                 </div>
               </div>
               )
