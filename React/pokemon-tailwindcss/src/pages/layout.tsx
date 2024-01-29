@@ -10,8 +10,8 @@ export const Layout = (): ReactElement => {
     return (
         <>
             <nav
-                className="flex flex-row items-center justify-between px-4 py-2"
-                style={{backgroundColor: isDarkTheme ? '#414141' : '#ccccff', color: isDarkTheme ? 'white' : 'black'}}
+                className="flex flex-row items-center justify-between px-4 py-2 "
+                style={{backgroundColor: isDarkTheme ? '#414141' : '#CCCCFF',color: isDarkTheme ? 'white' : 'black'}}
             >
               <span
                   className="text-3xl font-bold"

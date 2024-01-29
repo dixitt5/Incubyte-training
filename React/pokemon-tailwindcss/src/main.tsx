@@ -10,6 +10,7 @@ if (root === null) {
 }
 
 // middlewares
+// TODO: Add Interceptos
 addResponseInterceptors()
 
 ReactDOM.createRoot(root).render(

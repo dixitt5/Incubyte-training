@@ -3,6 +3,7 @@ import { Home } from '../pages/Home.tsx'
 import { ErrorPage } from '../pages/error.tsx'
 import { PokeDetails } from '../pages/PokeDetails.tsx'
 import { Layout } from '../pages/layout.tsx'
+import {Pagination} from "../pages/Pagination.tsx";
 
 export const routes = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ export const routes = createBrowserRouter([
       {
         path: ':id',
         element: <PokeDetails/>
+      },
+      {
+        path: 'pagination',
+        element: <Pagination/>
       }
     ]
   },

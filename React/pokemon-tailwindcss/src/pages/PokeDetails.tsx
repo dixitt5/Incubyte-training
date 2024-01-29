@@ -10,7 +10,7 @@ export const PokeDetails = (): ReactElement => {
     const navigate = useNavigate()
     const {pokemon, isLoading, error} = usePokemonDetails(+(id ?? 0))
     if (error != null) {
-        return <div>{error}</div>
+        return <div>{error.message}</div>
     }
     return <>
         {isLoading
