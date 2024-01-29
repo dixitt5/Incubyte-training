@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Incubyte.iml" filepath="$PROJECT_DIR$/.idea/Incubyte.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Incubyte-training.iml" filepath="$PROJECT_DIR$/Incubyte-training.iml" />
     </modules>
   </component>
 </project>
