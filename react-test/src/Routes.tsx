@@ -3,6 +3,7 @@ import App from './pages/Home'
 import ErrorPage from './pages/ErrorPage'
 import Details from './components/Details'
 import Layout from './pages/layout/Layout'
+import Search from './components/Search'
 
 export const router = createBrowserRouter([
   {
@@ -20,6 +21,9 @@ export const router = createBrowserRouter([
       {
         path: ':id',
         element: <Details/>
+      }, {
+        path: 'search',
+        element: <Search/>
       }
     ]
   },

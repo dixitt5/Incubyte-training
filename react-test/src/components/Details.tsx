@@ -16,7 +16,7 @@ const Details = (): ReactElement => {
         {
           !isLoading
             ? (
-              <div className="flex w-auto flex-col sm:flex-col sm:justify-center sm:items-center md:flex-col md:justify-end lg:flex-row lg:justify-end lg:items-center lg:gap-4 xl:flex-row xl:justify-around justify-around rounded-xl p-5 mx-2 my-6 bg-white dark:bg-gray-300 text-black">
+              <div className="flex w-auto flex-col sm:flex-col sm:justify-center sm:items-center md:flex-col md:justify-end lg:flex-row lg:justify-end lg:items-center lg:gap-4 xl:flex-row xl:justify-around justify-around rounded-xl p-5 mx-2 my-6 shadow-xl bg-white dark:bg-gray-300 text-black">
                 <div><img className="bg-contain border border-black p-4 rounded-md" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonDetails?.id}.png`} alt={pokemonDetails?.name} /></div>
                 <div className='flex flex-col gap-3'>
                 <h2 className='text-xl font-semibold'><span className='font-bold'>ID:</span> {pokemonDetails?.id}</h2>
