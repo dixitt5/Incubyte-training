@@ -1,11 +1,11 @@
-import {faker, fakerEN_IN } from '@faker-js/faker'
-import Express, { request }  from 'express';
+import { fakerEN_IN } from '@faker-js/faker'
+import Express from 'express';
+import cors from 'cors';
 import lodash from 'lodash'
 import axios from 'axios';
 
-import  jsonServer from 'json-server';
-
 const app = Express();
+app.use(cors())
 const _ = lodash
 
 app.get('/users', (req, res) => {
@@ -24,12 +24,10 @@ app.get('/users', (req, res) => {
     }))
 })
 
-app.use("api/", jsonServer.router("db.json"));
-
 app.get("/pokemons/results", async (req, res) => {
   const result = await axios.get("http://localhost:3000/results");
   console.log(result.data)
-  res.json(result.data)
+  res.json(result.data);
 })
 
 app.listen(3001, ()=>{
