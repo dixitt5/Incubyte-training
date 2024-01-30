@@ -21,7 +21,7 @@ const Search = (): ReactElement => {
         const ab: string[] = result.abilities.map((abb) => {
           return (abb.ability.name + ' ')
         })
-        console.log(ab)
+        console.log(result)
         setAbilities(ab)
         setPokemonDetails(result)
         setIsLoading(false)
