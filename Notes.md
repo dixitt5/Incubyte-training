@@ -114,3 +114,87 @@ eg. interface Person {
     - Try dark theme without global context
 - Custom styles in tailwind.
 - (Optional) Try replicate any page of any social-media using any CSS framwork or only CSS.
+
+
+# Day-5 [29/1/24]
+
+# Incubyte Values
+## Take responsibilities for our actions.
+- Automated testing
+- Peer reviews
+- etc.
+## Keep learning
+## We are guided by quality but also deliver values to clients.
+## Deliver valueable softwares.
+
+# Two types of mindset
+1) Fixed mindset
+2) Growth mindset
+
+# Develop new skills
+- Improve typing speed & learn more shortcuts
+- Improve programming skils
+    - Clean code
+    - Pair programming
+    - TDD
+- Try to learn a new language
+
+# Suggestions
+- Start doing Katas
+- Follow Kent Beck
+
+## Express
+- Installing express -> npm i express
+
+# Mock API
+- Used majorly for testing as hitting real API will cost.
+- They are the dummy API which can be created using Express.
+- *STEPS TO CREATE API IN EXPRESS*
+    1) After installing the Express in the project directory, import `express` from `'express'` module.
+    2) Create a `const` express object using `express()`
+    3) Setup a server using `listen()` method on the express object. Give a port number and then open the Url (here it will be the localhost:[port-number]) in the browser. Now this `listen()` will listen to any request made on the given port.
+    4) Create Url routes or query using `use()` or `get()`.
+
+## Difference betn QueryParams & Parameters
+- When working with the url like "https://www.abc.com/home?users=10&offset=0"
+    - This type of urls' parameters are called query parameters.
+    - They can be accessed as query parameters.
+- If the url type is like "https://www.abc.com/home/12"
+    - This type of urls's parameters are simply called parameters.
+    - This can come handy when working with REST APIs, as this is the standard to access the resources.
+    - They can be accessed as parameters.
+    - Usually they are used to get single resources.
+
+## json-server
+- Documentation -> https://www.npmjs.com/package/json-server
+- This server is used to host the data of any json file on a port.
+- To install json server use command `npm install json-server`
+- To run a json file on a url use command `npx json-server db.json`
+
+## Faker
+- Documentation -> https://fakerjs.dev/guide/localization.html#individual-localized-packages
+- Generate massive amounts of fake (but realistic) data for testing and development.
+- To install Faker use command `npm install --save-dev @faker-js/faker`
+- Installation guide -> https://www.npmjs.com/package/@faker-js/faker
+
+
+# Day-6 [30/1/24]
+
+# Java
+
+## Record
+- They are used to create same immutable objects as a class but in more convinient way.
+- It reduces some lines of code to define attibutes, constructor, getter & setter.
+
+## Sealed classes
+- Controls who will implement and extend the sealed class.
+- Provide a more declarative way than access modifiers to restrict the use of superclass.
+
+## Stream operations
+- Predicate is used for filter method.
+
+# Suggestions
+- Try avoiding static variables.
+
+
+
