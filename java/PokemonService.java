@@ -16,4 +16,9 @@ public class PokemonService {
 
         pokemonRepo.addPokemon(pokemon);
     }
+
+    public void searchPokemon(int id)
+    {
+
+    }
 }
