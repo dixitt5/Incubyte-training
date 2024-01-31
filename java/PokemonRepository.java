@@ -1,4 +1,6 @@
+import java.util.List;
+
 public interface PokemonRepository {
-    public Pokemon[] getPokemonList(int length);
+    public List<Pokemon> getPokemonList(int length);
 
 }
