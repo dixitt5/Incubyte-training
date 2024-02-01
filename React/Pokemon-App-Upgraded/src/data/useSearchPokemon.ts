@@ -20,8 +20,6 @@ const useSearchPokemon = (idOrName: string | number): {searchedPoke: Pokemon, is
 
   useEffect(() => {
     axios.get(`https://pokeapi.co/api/v2/pokemon/${idOrName}`).then((response) => {
-      console.log('UseSearchedPokemon: Response:', response);
-      
       let imageUrl = response.data.sprites.other["official-artwork"].front_default
       if(imageUrl === null){
           imageUrl = response.data.sprites.front_default

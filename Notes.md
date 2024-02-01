@@ -197,4 +197,88 @@ eg. interface Person {
 - Try avoiding static variables.
 
 
+# Day-7 [31/1/24]
 
+# Clean code
+- 
+- The Boy Scout Rule: "Leave the campground cleaner than you found it".
+
+## Function
+- A function should only have 1, 2 or in worst case 3 params.
+- Give Business name to functions which describes exactly what they are doing.
+- 1st rule: Make a function smaller
+  2nd rule: Make it even smaller.
+
+## DRY principle
+- Don't Repeat Yourself
+
+## Comments
+- Production code must not have comments or very very less comments.
+- You can use comments for regex as they are very complex to read.
+- Writing Doc strings is a good practice but its hard to maintain, that's why we try to avoid it into the production.
+
+## Magic numbers
+- If you are using some number at anywhere which cannot describe itself, then try to take it into a variable the use it to increase the readability.
+
+# MVC (Model View Controller)
+- Controller -> Service -> Repository
+    1) Controller:- Accepts & handles the requests from the frontend
+    2) Service:- It contains main business logic. It handles the requests forwaded by the Controller and then Service takes cars of it by accessing the Repository.
+    3) Repository:- It holds the storage of actual data like DB, Json, cloud etc.
+
+# IntelliJ Env Project Setup
+- Create a new project
+- Select Language as `Java` & DSL(Domain Specific Language) as `Groovy`
+- Make sure that we have compatibility of version like in `Module Settings` It must have same java version in `dependencies`
+
+## What is `./gradlew`?
+- It match the exact version of the of shared project. If it's not available it will first fetch the version and then run the `build`.
+
+
+# TDD
+- Add Key promoter plugin.
+- CTRL + ALT + S for settings
+- CTRL + p for Parameters expected by any method
+- CTRL + SHIFT + F10 to run the tests while inside the testing class.
+
+- Abbreviation ->
+- Incubyte follows Snake Casing to write the name of the testing functions. 
+eg.
+```
+class CalculatorServiceShould {
+    @Test
+    void add_2_numbers() {
+        // stats.
+    }
+}
+```
+- 3As (Arrange, Action, Assert)
+    1) Arrange:- Arrange the necessary vars or related data.
+    2) Action:- Write the actual function which is about to be tested.
+    3) Assert:- Assert/Check whether the Action fullfill the expected or not.
+
+## Integration testing
+- It checks the end-to-end flow.
+- It checks whether the requsted data has recieved or not.
+- Convention for name of these testing files ends with `Test`
+
+## Unit test
+- Convention for name of these testing files ends with `Should`
+
+### Mockito testing
+- It is used 
+
+
+# Day-8
+
+## POJO
+- Plain Old Java Object.
+
+# Micronaut
+## Why Micronaut
+- Automatically creates http server.
+- Easy to handle methods like GET & POST.
+- Startup is faster but compilation is slower.  
+
+## Homework
+- Learn Design Pattern. Head of design.

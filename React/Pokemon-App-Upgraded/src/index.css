@@ -23,6 +23,6 @@
         padding: 0 4px;
     }
     li {
-        @apply list-decimal;
+        /* @apply list-decimal; */
     }
 }

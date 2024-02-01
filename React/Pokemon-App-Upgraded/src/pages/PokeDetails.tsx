@@ -52,24 +52,24 @@ const PokeDetails = (): ReactElement => {
                   <tr>
                     <td align={'right'}>Abilities: </td>
                     <td>
-                      <ul style={{ padding: "0px 20px", margin: 0 }}>
+                      <ol className='list-decimal py-0 px-[20px] m-0'>
                         {searchedPoke.abilities.map((ability, index) => (<li key={index}>{capitalisedFirstLetter(ability)}</li>))}
-                      </ul>
+                      </ol>
                     </td>
                   </tr>
                   <tr>
                     <td align={'right'}>Types: </td>
                     <td>
-                      <ul style={{ padding: "0px 20px", margin: 0 }}>
+                      <ol className='list-decimal py-0 px-[20px] m-0'>
                         {searchedPoke.types.map((type, index) => (<li key={index}>{capitalisedFirstLetter(type)}</li>))}
-                      </ul>
+                      </ol>
                     </td>
                   </tr>
                 </tbody>
               </table>
-              <input className='focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-lg px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800' type={"button"} value={"Home"} onClick={() => navigate("/")}></input>
             </>
       }
+      <input className='focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-lg px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800' type={"button"} value={"Home"} onClick={() => navigate("/")}></input>
     </div >
   )
 }
