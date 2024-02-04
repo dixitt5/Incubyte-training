@@ -255,22 +255,21 @@ class CalculatorServiceShould {
 - 3As (Arrange, Action, Assert)
     1) Arrange:- Arrange the necessary vars or related data.
     2) Action:- Write the actual function which is about to be tested.
-    3) Assert:- Assert/Check whether the Action fullfill the expected or not.
+    3) Assert:- Assert/Check whether the Action fulfill the expected or not.
 
 ## Integration testing
 - It checks the end-to-end flow.
-- It checks whether the requsted data has recieved or not.
+- It checks whether the requested data has received or not.
 - Convention for name of these testing files ends with `Test`
 
 ## Unit test
 - Convention for name of these testing files ends with `Should`
 
 ### Mockito testing
-- It is used 
+- It is used for testing 
 
 
-# Day-8
-
+# Day-8 [1/2/24]
 ## POJO
 - Plain Old Java Object.
 
@@ -280,5 +279,19 @@ class CalculatorServiceShould {
 - Easy to handle methods like GET & POST.
 - Startup is faster but compilation is slower.  
 
+# Docker
+- Start the docker desktop app to start the docker engine.
+- To run docker in the Micronaut project type command `docker compose up`
+
 ## Homework
 - Learn Design Pattern. Head of design.
+
+
+# Day-9 [2/2/24]
+# Micronaut
+- Route/Url is for API.
+- Class/Entity is for database.
+
+## Liquibase
+- Keep one query in one changeset.
+- 

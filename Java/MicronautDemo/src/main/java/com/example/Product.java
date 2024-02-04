@@ -3,13 +3,13 @@ package com.example;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import org.hibernate.annotations.Generated;
+import org.hibernate.annotations.UuidGenerator;
 
 @Entity()
 @Table(name = "products")
 public class Product {
     @Id
-    @Generated
+    @UuidGenerator
     private String id;
     private String name;
 

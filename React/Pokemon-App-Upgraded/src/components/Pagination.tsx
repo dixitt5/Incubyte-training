@@ -1,50 +1,66 @@
-import { useState } from "react"
+import { ReactElement, useContext, useEffect } from "react"
+import FetchingOffsetContext from "../contexts/FetchingOffsetContext"
 
-const Pagination = () => {
-    const [pages, setPages] = useState<number[]>([1, 2, 3])
+interface PaginationProps {
+    pages: number[]
+    setPages: (pages: number[]) => void
+    fetchingLimit: number
+}
 
-    const incrementPage = (currentPages: number[]) => {
+const Pagination = ({ pages, setPages, fetchingLimit }: PaginationProps): ReactElement => {
+    const { setFetchingOffset } = useContext(FetchingOffsetContext)
+
+    const incrementPage = () => {
+        const currentPages = [...pages]
         currentPages.push(currentPages.length + (currentPages.shift() ?? 1))
         setPages(currentPages)
-        console.log(pages);
-        
+        console.log("Hook: Pages:", pages);
+
     }
-    const decrementPage = (currentPages: number[]) => {
+    const decrementPage = () => {
+        const currentPages = [...pages]
         if (currentPages[0] > 0) {
             currentPages.unshift(-(currentPages.length - (currentPages.pop() ?? 0)))
             setPages(currentPages)
+            console.log(pages);
         }
     }
+
+    useEffect(() => {
+        setFetchingOffset((pages[1] - 1) * fetchingLimit)
+    }, [pages, setFetchingOffset, fetchingLimit])
+
+
     return (
-        <nav aria-label="Page navigation example">
+        <nav className="flex justify-center" aria-label="Page navigation example">
             <ul className="list-none mb-6 flex">
                 <li>
-                    <a onClick={() => decrementPage(pages)} className="pointer-events-none relative block rounded bg-transparent px-3 py-1.5 text-sm text-neutral-500 transition-all duration-300 dark:text-neutral-400">
+                    <button type="button" onClick={() => decrementPage()} className={`${pages[0] === 0 ? 'pointer-events-none text-neutral-500 ' : 'text-white dark:hover:bg-neutral-700 dark:hover:text-white'} relative block rounded bg-transparent px-3 py-1.5 text-sm  transition-all duration-300`}>
                         Previous
-                    </a>
+                    </button>
                 </li>
                 <li>
                     <button type="button" className="relative block rounded bg-transparent px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100  dark:text-white dark:hover:bg-neutral-700 dark:hover:text-white">
-                        {pages[0]}
+                        {pages[0] === 0 ? null : pages[0]}
                     </button>
                 </li>
                 <li aria-current="page">
-                    <a className="relative block rounded bg-white px-3 py-1.5 text-sm font-medium text-primary-700 transition-all duration-300">
+                    <button type="button" className="relative block rounded bg-white px-3 py-1.5 text-sm font-medium text-primary-700 transition-all duration-300">
                         {pages[1]}
                         <span className="absolute -m-px h-px w-px overflow-hidden whitespace-nowrap border-0 p-0 [clip:rect(0,0,0,0)]">
                             (current)
                         </span>
-                    </a>
+                    </button>
                 </li>
                 <li>
-                    <a className="relative block rounded bg-transparent px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100 dark:text-white dark:hover:bg-neutral-700 dark:hover:text-white">
+                    <button type="button" className="relative block rounded bg-transparent px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100 dark:text-white dark:hover:bg-neutral-700 dark:hover:text-white">
                         {pages[2]}
-                    </a>
+                    </button>
                 </li>
                 <li>
-                    <input type="button" value={"Next"} onClick={() => incrementPage(pages)} className="relative block rounded bg-transparent px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100 dark:text-white dark:hover:bg-neutral-700 dark:hover:text-white" />
-                    {/* Next
-                    </input> */}
+                    <button type="submit" onClick={() => incrementPage()} className="relative block rounded bg-transparent px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100 dark:text-white dark:hover:bg-neutral-700 dark:hover:text-white">
+                        Next
+                    </button>
                 </li>
             </ul>
         </nav>

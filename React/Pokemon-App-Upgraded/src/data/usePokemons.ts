@@ -54,23 +54,26 @@ import { Pokemon } from "../interfaces/Pokemon"
 
 
 export const usePokemons = (limit: number, offset: number): { pokemons: Pokemon[], isLoading: boolean, error: Error | null } => {
-    const [pokemons, setPokemons] = useState<Pokemon[]>([])
-    const [isLoading, setIsLoading] = useState<boolean>(true)
-    const [error, setError] = useState(null)
+  const [pokemons, setPokemons] = useState<Pokemon[]>([])
+  const [isLoading, setIsLoading] = useState<boolean>(true)
+  const [error, setError] = useState(null)
+  // console.log('Limit:', limit);
+  // console.log('Offset:', offset);
   
-    useEffect(() => {
-      axios.get(`https://pokeapi.co/api/v2/pokemon/?limit=${limit}&offset=${offset}`).then((response) => {
-        const pokes: Pokemon[] = response.data.results.map((poke: Pokemon, index: number) => ({ 
-            id: (offset + index + 1), 
-            name: poke.name, 
-            imageUrl: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${(offset + index + 1)}.png`}))
-        setPokemons(pokes)
-        setIsLoading(false)
-      }).catch((error) => {
-        setError(error)
-        setIsLoading(false)
-      })
-    }, [limit, offset])
-  
-    return { pokemons, isLoading, error }
-  }
+
+  useEffect(() => {
+    axios.get(`https://pokeapi.co/api/v2/pokemon/?limit=${limit}&offset=${offset}`).then((response) => {
+      const pokes: Pokemon[] = response.data.results.map((poke: Pokemon, index: number) => ({ 
+          id: (offset + index + 1), 
+          name: poke.name, 
+          imageUrl: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${(offset + index + 1)}.png`}))
+      setPokemons(pokes)
+      setIsLoading(false)
+    }).catch((error) => {
+      setError(error)
+      setIsLoading(false)
+    })
+  }, [limit, offset])
+
+  return { pokemons, isLoading, error }
+}
