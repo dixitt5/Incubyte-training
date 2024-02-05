@@ -1,20 +1,20 @@
 import java.util.ArrayList;
 import java.util.List;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        List<Pokemon> pokemonList = new ArrayList<>();
+//        List<Pokemon> pokemonList = new ArrayList<>();
+//
+//        pokemonList.add(new Pokemon(1, "bulbasaur", PokemonTypes.FIRE));
+//        pokemonList.add(new Pokemon(2, "ivysaur", PokemonTypes.GRASS));
 
-        pokemonList.add(new Pokemon(1, "bulbasaur"));
-        pokemonList.add(new Pokemon(2, "ivysaur"));
+        PokemonService pokemonService = new PokemonService();
 
-        PokemonController pokemonController = new PokemonController(pokemonList);
+//        pokemonService.addPokemon(new Pokemon(3, "pikachu", PokemonTypes.ROCK));
 
-        pokemonController.addPokemon(new Pokemon(3, "pikachu"));
+        pokemonService.showPokemons();
 
-        System.out.println(pokemonController);
+
 
     }
 }

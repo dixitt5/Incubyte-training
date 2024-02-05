@@ -1,0 +1,20 @@
+# Git
+- VCS
+- Developed by Linus Torvalds
+- cloning gives entire history and all branches
+- stores snapshot of the entire state of the project, 
+- adds data, almost never deletes stuff
+- integrity hash -> for differentiating b/w different commits
+- states
+  - commited, modified, staged
+  - commited -> stores in .git memory (db)
+  - 
+  - staging == index == cached
+- config
+  - global --global
+  - user --system
+  - project (go into directory)
+- commit 
+  - log your changes
+  - message is always required
+  - 
