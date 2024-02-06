@@ -376,5 +376,8 @@ class CalculatorServiceShould {
 ## Git Commands
 ### git log
 - `--pretty`: This option can be used to display log in various different ways.
-- 
+- `--oneline`: This option will display commit logs in one line
+- `-n5`: This option will show the number of commits to show; like here we are showing 5 commits.
+- `--stat`: It will display all the files that have been committed.
+
 ### 
