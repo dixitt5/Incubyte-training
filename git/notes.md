@@ -1,4 +1,3 @@
 # Git
 
-
-## Testing merge 
+## Testing merge conflict
