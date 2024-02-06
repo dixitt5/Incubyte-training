@@ -40,7 +40,7 @@ const Pagination = ({ pages, setPages, fetchingLimit }: PaginationProps): ReactE
                     </button>
                 </li>
                 <li>
-                    <button type="button" className="relative block rounded bg-transparent px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100  dark:text-white dark:hover:bg-neutral-700 dark:hover:text-white">
+                    <button type="button" onClick={() => decrementPage()} className={`${pages[0] === 0 ? 'pointer-events-none' : 'hover:bg-neutral-100 dark:hover:bg-neutral-700'} relative block rounded bg-transparent px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 dark:text-white dark:hover:text-white`}>
                         {pages[0] === 0 ? null : pages[0]}
                     </button>
                 </li>
@@ -53,7 +53,7 @@ const Pagination = ({ pages, setPages, fetchingLimit }: PaginationProps): ReactE
                     </button>
                 </li>
                 <li>
-                    <button type="button" className="relative block rounded bg-transparent px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100 dark:text-white dark:hover:bg-neutral-700 dark:hover:text-white">
+                    <button type="button" onClick={() => incrementPage()} className="relative block rounded bg-transparent px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100 dark:text-white dark:hover:bg-neutral-700 dark:hover:text-white">
                         {pages[2]}
                     </button>
                 </li>

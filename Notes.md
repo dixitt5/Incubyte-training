@@ -279,9 +279,28 @@ class CalculatorServiceShould {
 - Easy to handle methods like GET & POST.
 - Startup is faster but compilation is slower.  
 
+## Features can be added in Micronaut Project
+1) `Jackson-databind`
+2) `data-jpa`
+3) `Liquibase`
+4) `http-client`
+5) `properties` or `yaml`
+6) `hikari`
+7) `assertj`
+8) `mockito`
+9) `mariadb`
+10) `junit-params`
+11) `mockserver-client-java`
+12) `testcontainers`
+13) `management`
+14) `micronaut-test-rest-assured`
+
 # Docker
 - Start the docker desktop app to start the docker engine.
 - To run docker in the Micronaut project type command `docker compose up`
+
+# Plugins
+- `Google-java-formatter` in IntelliJ to format java code.
 
 ## Homework
 - Learn Design Pattern. Head of design.
@@ -295,3 +314,67 @@ class CalculatorServiceShould {
 ## Liquibase
 - Keep one query in one changeset.
 - 
+
+# Day-10 [5/2/24]
+
+## Levels of Testing
+*Top level*
+1) UI Manual 
+2) Acceptance Testing
+3) E2E
+4) Contract Testing
+5) Integration testing
+6) Unit testing
+
+*Bottom level*
+
+## Integration Testing
+- You don't mock anything
+- Here you test outside of your code.
+- You test your APIs from outside to check how it works.
+
+## E2E (End To End)
+- Used to test servers using UI itself.
+- Here also we don't mock anything.
+
+## Other Testings
+1) Spike testing
+   - Here you suddenly increase the load.
+2) Gradual testing
+   - Here you gradually increase the load.
+3) Stress testing
+   - Here you increase and then maintain the load for a longer period.
+
+## Out-siding Testing in TDD
+- This is done by integration testing.
+
+### Integration Testing in Micronaut [Testing our Product API]
+*Features to add: `micronaut-test-rest-assured`, `mockito`, `testcontainers`*
+#### To Test an API using RequestSpecification
+- spec.given
+  - context
+  - when
+  - then
+  - extract
+
+# Today's Summary
+- Learned about the Integration testing.
+- Difference between Integration and Unit testing.
+
+
+# Day-11 [6/2/24]
+
+# GIT
+
+## Hashing
+- Git uses the SHA encoding to hash the uploaded data to check the similarity or differences between files and their lines.
+
+## Author
+- The one who pushes the file first that is the Author.
+- Anyone who pushes afterward they are called commiters.
+
+## Git Commands
+### git log
+- `--pretty`: This option can be used to display log in various different ways.
+- 
+### 
