@@ -12,10 +12,7 @@ public class Main {
 
 
         service.getAll().forEach(pokemon -> {
-            System.out.println(pokemon.name());
-            System.out.println(pokemon.id());
-            System.out.println(pokemon.height());
-            System.out.println(pokemon.weight());
+            printPokemonDetails(pokemon);
         });
 
 //        service.searchPokemon();
@@ -48,6 +45,13 @@ public class Main {
 //        System.out.println(pokemonStream);
 
 
+    }
+
+    private static void printPokemonDetails(Pokemon pokemon) {
+        System.out.println(pokemon.name());
+        System.out.println(pokemon.id());
+        System.out.println(pokemon.height());
+        System.out.println(pokemon.weight());
     }
 
     private static PokemonService getPokemonService() {
