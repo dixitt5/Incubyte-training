@@ -380,4 +380,8 @@ class CalculatorServiceShould {
 - `-n5`: This option will show the number of commits to show; like here we are showing 5 commits.
 - `--stat`: It will display all the files that have been committed.
 
-### 
+## Conflicts
+- There are two ways to resolve conflicts
+  1) Merge
+  2) Rebase
+
