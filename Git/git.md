@@ -17,4 +17,25 @@
 - commit 
   - log your changes
   - message is always required
-  - 
+- git remote show origin
+- git switch
+- git checkout 
+- git stash
+  - temporary storage
+  - save to some storage
+  - stack
+  - apply and pop
+- git checkout vs git switch
+
+- zsh plugins
+  - git
+  - zsh-autosuggestions
+  - zsh-syntax- higlightig
+  - z
+  - sudo
+  - fzf
+- git revert
+  - adds a commit to undo the commit 
+
+# tag
+- pointer to some commit and all changes up until that commit
