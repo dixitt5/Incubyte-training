@@ -385,3 +385,15 @@ class CalculatorServiceShould {
   1) Merge
   2) Rebase
 
+## Diff^ bet^ checkout & switch
+- checkout will allow access to every commits and also can create as well as switch between branches.
+- Whereas the switch command does not provides access to all commits. It only gives access to the latest commit.
+
+
+# Day-12 [7/2/24]
+
+## Source Tree
+- It is an external tool for github.
+
+## Documentation
+- 
