@@ -1,30 +1,96 @@
-# React + TypeScript + Vite
+# Pokemon App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- This is a simple app that fetches pokemons using api by using react and vite.
 
-Currently, two official plugins are available:
+# Description
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Consists of multiple pages that fetches pokemons and displays them in a card format and also has a search bar to search for pokemons.
 
-## Expanding the ESLint configuration
+# Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Tools Required
 
-- Configure the top-level `parserOptions` property like this:
+- IntelliJ Webstorm / VS Code / Sublime Text etc.
+- Node.js
+- npm
+- Vite
+- React
+- TypeScript
+- ESLint
+- Prettier
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
+## Versions
+
+```javascript
+{
+  "dependencies": {
+    "axios": "^1.6.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.21.3"
   },
+  "devDependencies": {
+    "@types/react": "^18.2.43",
+    "@types/react-dom": "^18.2.17",
+    "@typescript-eslint/eslint-plugin": "^6.19.1",
+    "@typescript-eslint/parser": "^6.14.0",
+    "@vitejs/plugin-react-swc": "^3.5.0",
+    "autoprefixer": "^10.4.17",
+    "eslint": "^8.56.0",
+    "eslint-config-standard-with-typescript": "^43.0.1",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-n": "^16.6.2",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.5",
+    "postcss": "^8.4.33",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.8"
+  }
 }
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## IDE - Plugins
+
+- Prettier with EsLint
+- Tailwind CSS IntelliSense
+
+## Chrome Plugins and Other tools
+
+- Postman
+- React Developer Tools
+
+## Deployment
+
+- NA
+
+## Config File Changes
+
+- 
+
+## Build Instructions
+
+- run `npm install` to install all the dependencies
+- run `npm run dev` to start the development server
+
+## Run Commands
+
+- `npm run dev` - to start the development server
+- `npm run build` - to build the project
+- `npm run test` - to test the project
+
+## Changelog
+
+## Authors
+
+- Dixit Tilaji
+
+## License
+
+- This Project is licensed under the License.
+
+## Acknowledgments
+
+- 
