@@ -2,7 +2,7 @@
 
 - This is a simple app that fetches pokemons using api by using react and vite.
 
-# Description
+## Description
 
 - Consists of multiple pages that fetches pokemons and displays them in a card format and also has a search bar to search for pokemons.
 
@@ -11,13 +11,14 @@
 ## Tools Required
 
 - IntelliJ Webstorm / VS Code / Sublime Text etc.
-- Node.js
-- npm
-- Vite
-- React
-- TypeScript
-- ESLint
-- Prettier
+- [Node.js](https://nodejs.org/en/)
+- [npm](https://www.npmjs.com/)
+- [Vite](https://vitejs.dev/)
+- [React](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [ESLint](https://eslint.org/)
+- [Prettier](https://prettier.io/)
+- [Taliwind CSS](https://tailwindcss.com/)
 
 ## Versions
 
@@ -37,13 +38,6 @@
     "@vitejs/plugin-react-swc": "^3.5.0",
     "autoprefixer": "^10.4.17",
     "eslint": "^8.56.0",
-    "eslint-config-standard-with-typescript": "^43.0.1",
-    "eslint-plugin-import": "^2.29.1",
-    "eslint-plugin-n": "^16.6.2",
-    "eslint-plugin-promise": "^6.1.1",
-    "eslint-plugin-react": "^7.33.2",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.5",
     "postcss": "^8.4.33",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.3.3",
@@ -54,7 +48,7 @@
 
 ## IDE - Plugins
 
-- Prettier with EsLint
+- Prettier with ESLint
 - Tailwind CSS IntelliSense
 
 ## Chrome Plugins and Other tools
@@ -64,16 +58,38 @@
 
 ## Deployment
 
-- NA
+- Docker
 
-## Config File Changes
+<!-- ## Config File Changes
 
-- 
+- -->
 
 ## Build Instructions
 
-- run `npm install` to install all the dependencies
-- run `npm run dev` to start the development server
+### 1. Install Dependencies:
+
+Make sure you have Node.js and npm (or yarn) installed on your system. You can download Node.js from https://nodejs.org/ if you don't have it already.
+
+Open your terminal or command prompt and navigate to the root directory of the project. This is usually where you'll find the package.json file.
+
+Run the following command to install all the required dependencies:
+
+```bash
+npm install
+```
+
+### 2. Start the Development Server:
+
+Once the dependencies are installed, run the following command to start the development server:
+
+```bash
+npm run dev
+```
+This will start the Vite development server, typically on port 3000.
+
+Open your web browser and go to http://localhost:3000 to view the application in your browser.
+
+Now you're ready to start developing!
 
 ## Run Commands
 
@@ -83,6 +99,13 @@
 
 ## Changelog
 
+- 0.2
+  - Added Search Bar
+  - Added Pagination
+  - Added Pokemon Details Page
+- 0.1
+  - Initial Commit
+
 ## Authors
 
 - Dixit Tilaji
@@ -91,6 +114,6 @@
 
 - This Project is licensed under the License.
 
-## Acknowledgments
+<!-- ## Acknowledgments
 
-- 
+-  -->
