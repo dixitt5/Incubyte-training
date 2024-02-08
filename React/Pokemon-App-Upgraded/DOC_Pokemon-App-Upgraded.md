@@ -61,9 +61,3 @@
     - It displays the playlist
 - Details
     - This page will be displayed only if clicked on a pokemon from the playlist or by searching.
-
-# No-Blame Root Cause Analysis
-
-- Incident Name: Search only through click on 'Search' button
-- Incident Description: During search, if you press the 'enter' button to perform search it won't work. It will refresh the page.
-
