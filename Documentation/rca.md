@@ -1,4 +1,4 @@
-# No-Blame Root Cause Analysis
+# No-Blame Root Cause Analysis: Pokemon API Call Failure
 
 # Overview:
 
@@ -13,7 +13,7 @@
 3. Is this an active incident?
     - Yes. This problem still exists in the application
 
-## What is the impact: <Sev3>
+## What is the impact: \<Sev2\>
 
 1. _Who is impacted?_
 
