@@ -10,14 +10,11 @@
 
 ## Tools Required
 
-- IntelliJ Webstorm / VS Code / Sublime Text etc.
 - [Node.js](https://nodejs.org/en/)
 - [npm](https://www.npmjs.com/)
 - [Vite](https://vitejs.dev/)
 - [React](https://reactjs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
-- [ESLint](https://eslint.org/)
-- [Prettier](https://prettier.io/)
 - [Taliwind CSS](https://tailwindcss.com/)
 
 ## Versions
@@ -45,24 +42,6 @@
   }
 }
 ```
-
-## IDE - Plugins
-
-- Prettier with ESLint
-- Tailwind CSS IntelliSense
-
-## Chrome Plugins and Other tools
-
-- Postman
-- React Developer Tools
-
-## Deployment
-
-- Docker
-
-<!-- ## Config File Changes
-
-- -->
 
 ## Build Instructions
 
@@ -97,6 +76,10 @@ Now you're ready to start developing!
 - `npm run build` - to build the project
 - `npm run test` - to test the project
 
+## Deployment
+
+- Docker
+
 ## Changelog
 
 - 0.2
@@ -117,3 +100,12 @@ Now you're ready to start developing!
 <!-- ## Acknowledgments
 
 -  -->
+## IDE - Plugins
+
+- Prettier with ESLint
+- Tailwind CSS IntelliSense
+
+## Chrome Plugins and Other tools
+
+- Postman
+- React Developer Tools
