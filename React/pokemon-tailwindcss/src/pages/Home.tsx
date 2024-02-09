@@ -1,4 +1,4 @@
-import {type ReactElement, useCallback, useContext, useState} from 'react'
+import {type ReactElement, useCallback, useContext, useEffect, useState} from 'react'
 import {type PokemonType} from '../interfaces/PokeType.ts'
 import PokeCard from '../components/PokeCard.tsx'
 import {usePokemonApi} from '../hooks/usePokemonApi.ts'
@@ -9,11 +9,15 @@ export const Home = (): ReactElement => {
     const {pokemons, isLoading, error} = usePokemonApi(12)
     const [pokemonsToBeDisplay, setPokemonsToBeDisplay] = useState<PokemonType[]>(pokemons)
 
+    useEffect(() => {
+        pokemons.map((pokemon: PokemonType, index: number) => pokemon.id = index)
+        console.log("come")
+    }, [])
 
     const handleSearch = useCallback((text: string) => {
         if (text != "") {
             const filteredPokemons = pokemonsToBeDisplay.filter((pokemon: PokemonType) =>
-                pokemon.name.includes(text)
+                pokemon.name.toLowerCase().includes(text.toLowerCase())
             )
             setPokemonsToBeDisplay(filteredPokemons)
         } else {
@@ -25,6 +29,7 @@ export const Home = (): ReactElement => {
         return <div>{error.message}</div>
     }
 
+
     return (
         <div>
             {isLoading
@@ -33,7 +38,7 @@ export const Home = (): ReactElement => {
                 : <div>
                     <div className="my-4 flex justify-center">
                         <input
-                            className={` ${isDarkTheme ? 'bg-[#414141] text-cyan-50' : 'bg-[#CCCCFF] text-black'} shadow appearance-none rounded w-1/2 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline`}
+                            className={` ${isDarkTheme ? 'bg-[#414141] text-white' : 'bg-[#CCCCFF] text-black'} shadow appearance-none rounded w-1/2 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline`}
                             id="username"
                             type="text"
                             placeholder="Search"
@@ -42,7 +47,7 @@ export const Home = (): ReactElement => {
                     </div>
                     <div className="grid grid-cols-4 gap-4">
                         {pokemonsToBeDisplay.map((pokemon: PokemonType, index: number) => (
-                            <PokeCard key={index} pokemon={{...pokemon, id: index + 1}}/>
+                            <PokeCard key={index} pokemon={{...pokemon, id: pokemon.id + 1}}/>
                         ))}
                     </div>
                 </div>
