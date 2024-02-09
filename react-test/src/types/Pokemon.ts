@@ -17,7 +17,7 @@ export interface PokemonDetailsApi extends PokemonApi {
   baseExperience: number
   height: number
   weight: number
-  abilities: string[]
+  abilities: any[]
 }
 
 export interface Ability {

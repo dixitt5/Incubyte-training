@@ -10,7 +10,7 @@ const Details = (): ReactElement => {
   const { id } = useParams()
   const { pokemonDetails, isLoading, error } = usePokemonDetails(Number(id))
   const ab: string[] = pokemonDetails.abilities.map((abb) => {
-    return (abb.ability.name + ' ')
+    return (abb.ability.name)
   })
   return (
     <div className="flex flex-col items-center text-light h-[100%] dark:bg-gray-700 bg-white justify-center">

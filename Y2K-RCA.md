@@ -78,7 +78,7 @@ _Too often on incidents we focus only on what went wrong. It helps to also note 
 - Incident response team was able to quickly identify the root cause of the issue and restore normal functionality within an hour.
 - Monitoring tools and user reports were able to quickly identify the issue and alert the incident response team.
 
-## Other Open Action Items:
+## Other Open Action Items: 
 
 _Non-blocking open action items that are needed to follow up for this incident. Any tooling we need to create, documentation that needs to be updated, more thorough fixes that need to be done, or more tests to be written?_
 

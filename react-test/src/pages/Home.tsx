@@ -5,6 +5,10 @@ import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { type PokemonApi } from '../types/Pokemon'
 
+export interface PokemonProps {
+  setRoute: (route: string) => void
+};
+
 function App (): JSX.Element {
   const navigate = useNavigate()
   // const { pokemons, isLoading, error } = usePokemonsApi()
