@@ -9,15 +9,14 @@ export interface Pokemon {
 
 export interface PokemonApi {
   name: string
-  url: string
   id: number
+  imageUrl: string
+  created_at: Date
 }
 
 export interface PokemonDetailsApi extends PokemonApi {
-  baseExperience: number
-  height: number
+  level: number
   weight: number
-  abilities: any[]
 }
 
 export interface Ability {

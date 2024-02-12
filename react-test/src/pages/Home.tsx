@@ -48,23 +48,25 @@ function App (): JSX.Element {
   }, [scroll])
 
   const fetchMoreData = async (): Promise<void> => {
-    setIsScrollLoading(true)
-    axios.get(`https://pokeapi.co/api/v2/pokemon?limit=10&offset=${offset}`).then((response) => {
-      const pokes: PokemonApi[] = response.data.results.map((p: PokemonApi, index: number) => ({ ...p, id: offset - 10 + index + 1 }))
-      setPokemons((prevPokemons: PokemonApi[]) => [...prevPokemons, ...pokes])
-      console.log(pokemons.length)
-      setIsScrollLoading(false)
-    }).catch((error) => {
-      setError(error)
-    })
+    // setIsScrollLoading(true)
+    // axios.get(`https://pokeapi.co/api/v2/pokemon?limit=10&offset=${offset}`).then((response) => {
+    //   const pokes: PokemonApi[] = response.data.results.map((p: PokemonApi, index: number) => ({ ...p, id: offset - 10 + index + 1 }))
+    //   setPokemons((prevPokemons: PokemonApi[]) => [...prevPokemons, ...pokes])
+    //   console.log(pokemons.length)
+    //   setIsScrollLoading(false)
+    console.log('fetching more data')
+    // }).catch((error) => {
+    //   setError(error)
+    // })
   }
 
   useEffect(() => {
     const fetchPokemons = (): void => {
       setIsLoading(true)
-      axios.get('https://pokeapi.co/api/v2/pokemon?limit=10').then((response) => {
+      // axios.get('https://pokeapi.co/api/v2/pokemon?limit=10').then((response) => {
+      axios.get('http://localhost:8080/pokemons').then((response) => {
         console.log(response.data)
-        const pokes: PokemonApi[] = response.data.results.map((p: PokemonApi, index: number) => ({ ...p, id: index + 1 }))
+        const pokes: PokemonApi[] = response.data.map((p: PokemonApi) => ({ ...p }))
         setPokemons(pokes)
         setIsLoading(false)
       }).catch((error) => {
