@@ -19,7 +19,7 @@ function PokeCard (pokeObj: PokeCardProps): ReactElement {
                 onClick={() => { navigate(`${pokeObj.pokemon.id}`) }}
             >
                 <img
-                    src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokeObj.pokemon.id}.png`}
+                    src={pokeObj.pokemon.url}
                     className="card-img-top"
                     alt={pokeObj.pokemon.url}
                 />
