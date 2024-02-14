@@ -22,21 +22,24 @@ describe('ProductsController', () => {
     expect(controller).toBeDefined();
   });
 
-  it('should return empty array', () => {
-    service.getProducts.mockReturnValue([]);
-    expect(controller.getProducts()).toMatchObject([]);
+  it('should return empty array', async () => {
+    service.getProducts.mockResolvedValue([]);
+    expect(await controller.getProducts()).toMatchObject([]);
   });
 
-  it('should add a new product', () => {
-    service.addProduct.mockReturnValue({ id: 1, name: 'test', price: 10 });
+  it('should add a new product', async () => {
+    service.addProduct.mockResolvedValue({ id: 1, name: 'test', price: 10 });
     //complete this
     const expectedProduct: ProductResponseDTO = {
-      id: 1,
+      id: expect.any(Number),
       name: 'test',
       price: 10,
     };
     expect(
-      controller.addProduct({ name: 'test', price: 10 } as ProductRequestDTO),
+      await controller.addProduct({
+        name: 'test',
+        price: 10,
+      } as ProductRequestDTO),
     ).toMatchObject(expectedProduct);
 
     expect(service.addProduct).toHaveBeenCalledWith({
@@ -45,18 +48,21 @@ describe('ProductsController', () => {
     });
   });
 
-  it('should return list of products', () => {
+  it('should return list of products', async () => {
     // arrange
-    service.getProducts.mockReturnValue([{ id: 1, name: 'test', price: 10 }]);
+    service.getProducts.mockResolvedValue([{ id: 1, name: 'test', price: 10 }]);
     const expectedProduct: ProductResponseDTO = {
       id: 1,
       name: 'test',
       price: 10,
     };
-    controller.addProduct({ name: 'test', price: 10 } as ProductRequestDTO);
+    await controller.addProduct({
+      name: 'test',
+      price: 10,
+    } as ProductRequestDTO);
 
     // act
-    const products = controller.getProducts();
+    const products = await controller.getProducts();
 
     // assert
     expect(service.getProducts).toHaveBeenCalled();

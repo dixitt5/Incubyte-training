@@ -12,14 +12,13 @@ export class ProductsController {
     this.service = service;
   }
   @Get()
-  getProducts() {
-    return this.service.getProducts();
+  async getProducts() {
+    return await this.service.getProducts();
   }
 
   @Post()
-  addProduct(@Body() newProduct: ProductRequestDTO) {
-    const addedProduct: ProductResponseDTO =
-      this.service.addProduct(newProduct);
+  async addProduct(@Body() newProduct: ProductRequestDTO) {
+    const addedProduct = await this.service.addProduct(newProduct);
     return addedProduct;
   }
 }
