@@ -16,7 +16,7 @@ describe('ProductsController', () => {
     expect(controller).toBeDefined();
   });
 
-  it('should return "Hello World!"', () => {
-    expect(controller.getProducts()).toBe('Hello World!');
+  it('should return empty array', () => {
+    expect(controller.getProducts()).toMatchObject([]);
   });
 });

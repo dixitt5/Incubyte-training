@@ -14,10 +14,10 @@ describe('ProductController (e2e)', () => {
     await app.init();
   });
 
-  it('/products (GET)', () => {
-    return request(app.getHttpServer())
+  it('/products (GET)', async () => {
+    const response = await request(app.getHttpServer())
       .get('/products')
-      .expect(200)
-      .expect('Hello World!');
+      .expect(200);
+    expect(response.body).toMatchObject([]);
   });
 });

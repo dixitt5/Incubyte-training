@@ -4,6 +4,6 @@ import { Controller, Get } from '@nestjs/common';
 export class ProductsController {
   @Get()
   getProducts() {
-    return 'Hello World!';
+    return [];
   }
 }
