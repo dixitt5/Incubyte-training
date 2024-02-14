@@ -4,7 +4,7 @@ import { ProductResponseDTO } from './productResponseDTO';
 
 @Controller('products')
 export class ProductsController {
-  private products = [];
+  private products: ProductResponseDTO[] = [];
   @Get()
   getProducts() {
     return this.products;
