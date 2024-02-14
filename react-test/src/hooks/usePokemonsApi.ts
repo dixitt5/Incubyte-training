@@ -12,8 +12,8 @@ export const usePokemonsApi = (): {
   const [error, setError] = useState<any>(null)
 
   useEffect(() => {
-    axios.get('https://pokeapi.co/api/v2/pokemon/?limit=10').then((response) => {
-      const pokes: PokemonApi[] = response.data.results.map((p: PokemonApi, index: number) => ({ ...p, id: index + 1 }))
+    axios.get('http://localhost:8080/pokemon').then((response) => {
+      const pokes: PokemonApi[] = response.data.map((p: PokemonApi, index: number) => ({ ...p, id: index + 1 }))
       setPokemons(pokes)
       setIsLoading(false)
     }).catch((err) => {

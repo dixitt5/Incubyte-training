@@ -45,7 +45,7 @@ function App (): JSX.Element {
 
   const fetchMoreData = async (): Promise<void> => {
     setIsScrollLoading(true)
-    axios.get(`https://pokeapi.co/api/v2/pokemon?limit=10&offset=${offset}`).then((response) => {
+    axios.get('http://localhost:8080/pokemon').then((response) => {
       const pokes: PokemonApi[] = response.data.results.map((p: PokemonApi, index: number) => ({ ...p, id: offset - 10 + index + 1 }))
       setPokemons((prevPokemons: PokemonApi[]) => [...prevPokemons, ...pokes])
       console.log(pokemons.length)
@@ -58,7 +58,7 @@ function App (): JSX.Element {
   useEffect(() => {
     const fetchPokemons = (): void => {
       setIsLoading(true)
-      axios.get('http://localhost:3001/pokemons/results').then((response) => {
+      axios.get('http://localhost:8080/pokemon').then((response) => {
         console.log(response.data)
         const pokes: PokemonApi[] = response.data.map((p: PokemonApi, index: number) => ({ ...p, id: index + 1 }))
         setPokemons(pokes)

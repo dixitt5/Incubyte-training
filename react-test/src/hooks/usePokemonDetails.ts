@@ -2,7 +2,7 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { type PokemonDetailsApi } from '../types/Pokemon'
 
-export const usePokemonDetails = (id: number): {
+export const usePokemonDetails = (id: string): {
   pokemonDetails: PokemonDetailsApi
   isLoading: boolean
   error: any
@@ -20,7 +20,7 @@ export const usePokemonDetails = (id: number): {
   const [error, setError] = useState<any>(null)
 
   useEffect(() => {
-    axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`).then((response) => {
+    axios.get(`http://localhost:8080/pokemon/${id}`).then((response) => {
       const result: PokemonDetailsApi = response.data
       setPokemonDetails(result)
       setIsLoading(false)
