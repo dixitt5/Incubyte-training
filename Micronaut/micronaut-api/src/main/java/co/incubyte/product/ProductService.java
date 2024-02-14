@@ -14,17 +14,19 @@ public class ProductService {
     public ProductService(ProductRepository productRepository) {
         this.productRepository = productRepository;
     }
+
     public Product getProductById(String id) {
         return productRepository.findById(id).orElseThrow(() -> new EntityNotFound("Product with id [" + id + "] Not Found!"));
     }
 
-    public List<Product> getProducts()  {
+    public List<Product> getProducts() {
         return productRepository.findAll();
     }
 
     public Product addProduct(ProductRequest body) {
         String id = new ULID().nextULID();
         Product product = new Product(id, body.name());
+        product.setPrice(body.price());
         return productRepository.save(product);
     }
 

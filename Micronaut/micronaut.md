@@ -80,7 +80,12 @@
 - docker pull mariadb
 - JDBC -> Hibernate ORM (own api) -> JPA api (interface - rules) -> Hibernate implement JPA (uses JDBC internally)
 - -> Micronaut implements JPA (uses Hibernate internally ), provides methods for db interaction
-- data-jpa, mariadb, yaml
+
+# micronaut launch
+- data-jpa, mariadb, yaml, jackson-databind, liquibase
+- (try serde instead of jackson-databind)
+- management
+- micronaut-test-rest-assured, mockito, testcontainers, assertJ (optional)
 
 # Features 
 - java client - mariadb driver
@@ -108,9 +113,15 @@ expose:actual port
 - @Table("table_name")
 - @Id -> matches with table
 - @Column
+- @ManyToOne
+- @OneToMany (mappedBy = "")
+- @ManyToMany 
+  - automatic mapping n every interaction
 
 # view db 
 - adminer
+- dbeaver
+- beekeeper
 
 # application properties (application.yml)
 - accessible in micronaut app
@@ -223,3 +234,56 @@ docker compose up
 - ctrl x -> delete line
 - select class member -> f6 (move to other class)
 - ctrl j -> select one occurence of something
+
+---
+# testing pyramid
+- width - no of test cases, as they less time to execute
+
+## unit testing
+- test smallest unit, every small functionality
+- code testing
+- mock repository
+## integration test
+- testing of integration of each unit 
+- say, one feature or interaction b/w modules
+- no mocking of current functionality 
+- mocking of things not directly related to current slice is mocked, even if inside system
+## End 2 End
+- no mocking of inside system, even if outside of the slice
+- mocking of outside system
+## acceptance test
+- for business needs, like capabilities
+- for showing after product is ready
+- acts as a contract, if tests pass and system is accepted by client
+## UI manual testing
+- user experience test
+
+# outside in testing
+- testing starts from outer layer of system
+- testing of apis
+- start with integration testing
+
+# test-rest-assured dependency
+- for syntax of testing
+
+# testContainers
+- start the db, setup the docker container, and then closes the mariadb and ryuk 
+
+# RequestSpecification
+- gets the instance of RestAssured by micronaut
+- given() -> context, arrange
+- when() -> action, act
+- then() - assert, assert
+
+# builder pattern
+- withQuantity()
+
+# reactive programming
+- flux and mono
+- can run on different threads
+- does not run until it is subscribed
+
+# performance test
+- spike
+- gradual
+- stress

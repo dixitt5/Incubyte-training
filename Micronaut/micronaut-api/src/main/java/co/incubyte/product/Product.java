@@ -18,8 +18,18 @@ import static co.incubyte.Config.DATE_PATTERN;
 public class Product {
 
     @Id
-    private  String id;
+    private String id;
     private String name;
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    private double price;
 
     @DateCreated
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = DATE_PATTERN, timezone = "UTC")
@@ -36,6 +46,7 @@ public class Product {
         this.id = id;
         this.name = name;
     }
+
     public String getId() {
         return id;
     }
