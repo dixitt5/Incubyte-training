@@ -1,4 +1,4 @@
-import React, { type ReactElement, useState } from 'react'
+import { type ReactElement, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const SearchPokemon = (): ReactElement => {

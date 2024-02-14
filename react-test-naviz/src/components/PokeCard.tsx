@@ -1,4 +1,4 @@
-import React, { type ReactElement } from 'react'
+import { type ReactElement } from 'react'
 import { type IPokemon } from '../models/Pokemon'
 import { useNavigate } from 'react-router-dom'
 

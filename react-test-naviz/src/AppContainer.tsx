@@ -1,4 +1,4 @@
-import React, { type ReactElement, useEffect } from 'react'
+import { type ReactElement, useEffect } from 'react'
 import { RouterProvider } from 'react-router-dom'
 import { router } from './pages/Routes'
 

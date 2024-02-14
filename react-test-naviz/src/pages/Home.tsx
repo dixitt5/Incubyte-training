@@ -1,4 +1,4 @@
-import React, { type ReactElement, useEffect, useState } from 'react'
+import { type ReactElement, useState } from 'react'
 // import '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import { type IPokemon } from '../models/Pokemon'
 import { PokeCard } from '../components/PokeCard'

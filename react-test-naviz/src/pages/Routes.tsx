@@ -1,6 +1,5 @@
 import { Navigate, createBrowserRouter } from 'react-router-dom'
 import Home from './Home'
-import React from 'react'
 import { PokeDetails } from './PokeDetails'
 import ErrorPage from './ErrorPage'
 import HomeLayout from './HomeLayout'

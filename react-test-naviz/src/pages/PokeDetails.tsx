@@ -1,4 +1,4 @@
-import React, { type ReactElement } from 'react'
+import { type ReactElement } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { usePokemonDetailsApi } from '../hooks/usePokemonDetailsApi'
 

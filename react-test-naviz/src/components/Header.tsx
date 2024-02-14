@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { type ReactElement } from 'react'
 
 export function Header ({ flag }: { flag: boolean }): ReactElement {
