@@ -20,4 +20,12 @@ describe('ProductController (e2e)', () => {
       .expect(200);
     expect(response.body).toMatchObject([]);
   });
+
+  it('/products (POST)', async () => {
+    const response = await request(app.getHttpServer())
+      .post('/products')
+      .send({ name: 'test', price: 10 })
+      .expect(201);
+    expect(response.body).toMatchObject({ id: 1, name: 'test', price: 10 });
+  });
 });
