@@ -17,10 +17,17 @@ describe('ProductController (e2e)', () => {
   });
 
   it('/products (GET)', async () => {
+    const productToBeAdded: ProductRequestDTO = { name: 'test', price: 10 };
+    await request(app.getHttpServer())
+      .post('/products')
+      .send(productToBeAdded)
+      .expect(201);
+    const expectedProduct: ProductResponseDTO = { id: 1, ...productToBeAdded };
+
     const response = await request(app.getHttpServer())
       .get('/products')
       .expect(200);
-    expect(response.body).toMatchObject([]);
+    expect(response.body).toMatchObject([expectedProduct]);
   });
 
   it('/products (POST)', async () => {

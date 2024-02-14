@@ -4,14 +4,16 @@ import { ProductResponseDTO } from './productResponseDTO';
 
 @Controller('products')
 export class ProductsController {
+  private products: ProductResponseDTO[] = [];
   @Get()
   getProducts() {
-    return [];
+    return this.products;
   }
 
   @Post()
   addProduct(@Body() newProduct: ProductRequestDTO) {
     const addedProduct: ProductResponseDTO = { id: 1, ...newProduct };
+    this.products.push(addedProduct);
     return addedProduct;
   }
 }

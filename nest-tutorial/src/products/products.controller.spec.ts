@@ -33,4 +33,14 @@ describe('ProductsController', () => {
       controller.addProduct({ name: 'test', price: 10 } as ProductRequestDTO),
     ).toMatchObject(expectedProduct);
   });
+
+  it('should return list of products', () => {
+    const expectedProduct: ProductResponseDTO = {
+      id: 1,
+      name: 'test',
+      price: 10,
+    };
+    controller.addProduct({ name: 'test', price: 10 } as ProductRequestDTO);
+    expect(controller.getProducts()).toMatchObject([expectedProduct]);
+  });
 });
