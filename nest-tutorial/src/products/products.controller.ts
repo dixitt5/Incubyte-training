@@ -1,4 +1,6 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
+import { ProductRequestDTO } from './productRequestDTO';
+import { ProductResponseDTO } from './productResponseDTO';
 
 @Controller('products')
 export class ProductsController {
@@ -8,7 +10,8 @@ export class ProductsController {
   }
 
   @Post()
-  addProduct(@Body() newProduct: { price: number; name: string }) {
-    return { id: 1, ...newProduct };
+  addProduct(@Body() newProduct: ProductRequestDTO) {
+    const addedProduct: ProductResponseDTO = { id: 1, ...newProduct };
+    return addedProduct;
   }
 }

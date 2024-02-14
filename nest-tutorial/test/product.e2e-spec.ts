@@ -2,6 +2,8 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { INestApplication } from '@nestjs/common';
 import { AppModule } from '../src/app.module';
 import * as request from 'supertest';
+import { ProductRequestDTO } from '../src/products/productRequestDTO';
+import { ProductResponseDTO } from '../src/products/productResponseDTO';
 
 describe('ProductController (e2e)', () => {
   let app: INestApplication;
@@ -22,10 +24,13 @@ describe('ProductController (e2e)', () => {
   });
 
   it('/products (POST)', async () => {
+    const productToBeAdded: ProductRequestDTO = { name: 'test', price: 10 };
     const response = await request(app.getHttpServer())
       .post('/products')
-      .send({ name: 'test', price: 10 })
+      .send(productToBeAdded)
       .expect(201);
-    expect(response.body).toMatchObject({ id: 1, name: 'test', price: 10 });
+
+    const expectedProduct: ProductResponseDTO = { id: 1, ...productToBeAdded };
+    expect(response.body).toMatchObject(expectedProduct);
   });
 });

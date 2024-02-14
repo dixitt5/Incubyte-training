@@ -1,5 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { ProductsController } from './products.controller';
+import { ProductRequestDTO } from './productRequestDTO';
+import { ProductResponseDTO } from './productResponseDTO';
 
 describe('ProductsController', () => {
   let controller: ProductsController;
@@ -22,10 +24,13 @@ describe('ProductsController', () => {
 
   it('should add a new product', () => {
     //complete this
-    expect(controller.addProduct({ name: 'test', price: 10 })).toMatchObject({
+    const expectedProduct: ProductResponseDTO = {
       id: 1,
       name: 'test',
       price: 10,
-    });
+    };
+    expect(
+      controller.addProduct({ name: 'test', price: 10 } as ProductRequestDTO),
+    ).toMatchObject(expectedProduct);
   });
 });
