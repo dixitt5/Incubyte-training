@@ -1,0 +1,14 @@
+version: '3.1'
+
+services:
+  db:
+    image: postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    environment:
+        POSTGRES_DB: ecommerce
+        POSTGRES_USER: om_yash
+        POSTGRES_PASSWORD: om_yash_ecom

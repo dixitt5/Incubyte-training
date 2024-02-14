@@ -1,3 +1,5 @@
 */node_modules
 */tsconfig.json
 ./express/apis/node_modules
+
+nest/productorderingsystem/data
