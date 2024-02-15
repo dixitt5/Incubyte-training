@@ -3,6 +3,7 @@ import { INestApplication } from '@nestjs/common';
 import { AppModule } from '../src/app.module';
 import * as request from 'supertest';
 import { PrismaService } from '../src/prisma/prisma.service';
+import { ProductRequestDTO } from '../src/products/productRequestDTO';
 
 describe('OrderController (e2e)', () => {
   let app: INestApplication;
@@ -19,11 +20,18 @@ describe('OrderController (e2e)', () => {
 
   afterEach(async () => {
     await prismaService.order.deleteMany();
+    await prismaService.product.deleteMany();
   });
 
   it('/orders (POST)', async () => {
+    const existingProduct = await prismaService.product.create({
+      data: {
+        name: 'test',
+        price: 10,
+      },
+    });
     const orderToBeAdded = {
-      productId: 1,
+      productId: existingProduct.id,
       quantity: 1,
     };
     const response = await request(app.getHttpServer())
@@ -33,27 +41,40 @@ describe('OrderController (e2e)', () => {
 
     expect(response.body).toMatchObject({
       id: expect.any(Number),
-      ...orderToBeAdded,
+      quantity: 1,
+      product: { id: existingProduct.id, name: 'test', price: 10 },
     });
-    await prismaService.order.findMany().then((orders) => {
-      expect(orders).toStrictEqual([response.body]);
-    });
+    await prismaService.order
+      .findMany({ include: { product: true } })
+      .then((orders) => {
+        expect(orders).toMatchObject([response.body]);
+      });
   });
 
   it('/orders (GET) ', async () => {
-    const orderToBeAdded = {
-      productId: 1,
+    const existingProduct = await prismaService.product.create({
+      data: {
+        name: 'test',
+        price: 10,
+      },
+    });
+    const existingOrder = {
+      productId: existingProduct.id,
       quantity: 1,
     };
-    const response = await prismaService.order.create({ data: orderToBeAdded });
+    const existingSavedOrder = await prismaService.order.create({
+      data: existingOrder,
+    });
 
     const getResponse = await request(app.getHttpServer())
       .get('/order')
       .expect(200);
 
-    expect(getResponse.body).toStrictEqual([response]);
-    prismaService.order.findMany().then((orders) => {
-      expect(orders).toStrictEqual([response]);
-    });
+    const expectedResponse = {
+      id: existingSavedOrder.id,
+      quantity: existingSavedOrder.quantity,
+      product: { id: existingProduct.id, name: 'test', price: 10 },
+    };
+    expect(getResponse.body).toStrictEqual([expectedResponse]);
   });
 });
