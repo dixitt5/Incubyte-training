@@ -5,7 +5,6 @@ import * as request from 'supertest';
 import { ProductRequestDTO } from '../src/products/productRequestDTO';
 import { ProductResponseDTO } from '../src/products/productResponseDTO';
 import { PrismaService } from '../src/prisma/prisma.service';
-import { anyNumber } from 'jest-mock-extended';
 
 describe('ProductController (e2e)', () => {
   let app: INestApplication;
