@@ -21,24 +21,22 @@ describe('ProductController (e2e)', () => {
   });
 
   afterEach(async () => {
-    prismaService.product.deleteMany();
+    await prismaService.product.deleteMany();
   });
 
   it('/products (GET)', async () => {
     // arrange
     const productRequest: ProductRequestDTO = { name: 'test', price: 100 };
-    await request(app.getHttpServer())
-      .post('/products')
-      .send(productRequest)
-      .expect(201);
+    await prismaService.product.create({ data: productRequest });
 
     // action
     const productResponse = await request(app.getHttpServer())
       .get('/products')
       .expect(200);
+
     // assert
     const expectedProductResponse: ProductResponseDTO = {
-      id: 1,
+      id: expect.any(Number),
       ...productRequest,
     };
     expect(productResponse.body).toMatchObject([expectedProductResponse]);
@@ -55,9 +53,10 @@ describe('ProductController (e2e)', () => {
       name: 'test',
       price: 100,
     };
+
     expect(productResponse.body).toMatchObject(expectedProductResponse);
     // checking the connection with the database
-    prismaService.product.findMany().then((products) => {
+    await prismaService.product.findMany().then((products) => {
       expect(products).toMatchObject([expectedProductResponse]);
     });
   });

@@ -4,7 +4,6 @@ import { ProductRequestDTO } from './productRequestDTO';
 import { ProductResponseDTO } from './productResponseDTO';
 import { PrismaService } from '../prisma/prisma.service';
 import { mockDeep } from 'jest-mock-extended';
-import { Product } from '@prisma/client';
 
 describe('ProductsService', () => {
   let service: ProductsService;
@@ -25,8 +24,9 @@ describe('ProductsService', () => {
     expect(service).toBeDefined();
   });
 
-  it('should return empty product list', () => {
-    const response: ProductResponseDTO[] = service.getProducts();
+  it('should return empty product list', async () => {
+    prismaService.product.findMany.mockResolvedValueOnce([]);
+    const response: ProductResponseDTO[] = await service.getProducts();
     expect(response).toMatchObject([]);
   });
 
@@ -38,14 +38,16 @@ describe('ProductsService', () => {
       ...productRequest,
     };
 
-    await service.addProduct(productRequest);
+    prismaService.product.findMany.mockResolvedValue([expectedProductResponse]);
+    // await service.addProduct(productRequest);
 
     // action
-    const response: ProductResponseDTO[] = service.getProducts();
+    const response: ProductResponseDTO[] = await service.getProducts();
 
     // assert
     // updated: "strictNullChecks": true; in tsconfig.json
     expect(response).toMatchObject([expectedProductResponse]);
+    expect(prismaService.product.findMany).toHaveBeenCalled();
   });
 
   it('should add a new product', async () => {

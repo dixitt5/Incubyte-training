@@ -1,19 +1,20 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
 import { ProductRequestDTO } from './productRequestDTO';
 import { ProductResponseDTO } from './productResponseDTO';
+import { ProductsService } from './products.service';
 
 @Controller('products')
 export class ProductsController {
-  private products: ProductResponseDTO[] = [];
+  constructor(private readonly productsService: ProductsService) {}
   @Get()
-  getProducts() {
-    return this.products;
+  async getProducts(): Promise<ProductResponseDTO[]> {
+    return this.productsService.getProducts();
   }
 
   @Post()
-  addProduct(@Body() productRequest: ProductRequestDTO): ProductResponseDTO {
-    const productResponse: ProductResponseDTO = { id: 1, ...productRequest };
-    this.products.push(productResponse);
-    return productResponse;
+  async addProduct(
+    @Body() productRequest: ProductRequestDTO,
+  ): Promise<ProductResponseDTO> {
+    return this.productsService.addProduct(productRequest);
   }
 }
