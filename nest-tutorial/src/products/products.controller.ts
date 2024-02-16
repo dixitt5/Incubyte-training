@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post, ValidationPipe } from '@nestjs/common';
 import { ProductRequestDTO } from './productRequestDTO';
 import { ProductResponseDTO } from './productResponseDTO';
 import { ProductsService } from './products.service';
