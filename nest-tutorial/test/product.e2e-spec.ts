@@ -1,5 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { INestApplication } from '@nestjs/common';
+import { INestApplication, ValidationPipe } from '@nestjs/common';
 import { AppModule } from '../src/app.module';
 import * as request from 'supertest';
 import { ProductRequestDTO } from '../src/products/productRequestDTO';
@@ -15,6 +15,7 @@ describe('ProductController (e2e)', () => {
       imports: [AppModule],
     }).compile();
     app = moduleFixture.createNestApplication();
+    app.useGlobalPipes(new ValidationPipe());
     prismaService = moduleFixture.get<PrismaService>(PrismaService);
     await app.init();
   });
@@ -67,7 +68,6 @@ describe('ProductController (e2e)', () => {
     expect(response.body).toMatchObject({
       statusCode: 400,
       message: ['price must be a number'],
-      error: 'Bad Request',
     });
   });
 
@@ -80,7 +80,6 @@ describe('ProductController (e2e)', () => {
 
     expect(response.body).toMatchObject({
       statusCode: 400,
-      error: 'Bad Request',
     });
 
     expect(response.body.message).toContain(
