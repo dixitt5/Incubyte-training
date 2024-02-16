@@ -77,4 +77,20 @@ describe('OrderController (e2e)', () => {
     };
     expect(getResponse.body).toStrictEqual([expectedResponse]);
   });
+
+  it('/orders (POST) - should return 400 if product does not exist', async () => {
+    const orderToBeAdded = {
+      productId: 1,
+      quantity: 1,
+    };
+    const response = await request(app.getHttpServer())
+      .post('/order')
+      .send(orderToBeAdded)
+      .expect(400);
+    expect(response.body).toMatchObject({
+      statusCode: 400,
+      message: 'Product does not exist',
+      error: 'Bad Request',
+    });
+  });
 });
