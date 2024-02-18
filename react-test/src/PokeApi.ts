@@ -8,15 +8,14 @@ export const fetchPokemons = async (): Promise<PokemonApi[]> => {
 
 export const fetchPokemonDetails = async (id: number): Promise<PokemonDetailsApi> => {
   const result = (await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`)).data
-  const abilities: string[] = result.abilities.map((ab: any) => ab.ability.name)
   const pokemonObject = {
     name: result.name,
     url: result.url,
     id: result.id,
-    baseExperience: result.base_experience,
-    height: result.height,
     weight: result.weight,
-    abilities
+    level: result.level,
+    imageUrl: result.imageUrl,
+    created_at: result.created_at
   }
   return pokemonObject
 }

@@ -12,53 +12,50 @@ export interface PokemonProps {
 function App (): JSX.Element {
   const navigate = useNavigate()
   // const { pokemons, isLoading, error } = usePokemonsApi()
-  const [scroll, setScroll] = useState<number>(0)
   const [pokemons, setPokemons] = useState<PokemonApi[]>([])
   const [error, setError] = useState<any>(false)
   const [isLoading, setIsLoading] = useState<boolean>(false)
-  const [isScrollLoading, setIsScrollLoading] = useState<boolean>(false)
-  const [offset, setOffset] = useState<number>(10)
 
-  const handleInfiniteScroll = async (): Promise<void> => {
-    try {
-      if (
-        window.innerHeight + document.documentElement.scrollTop + 1 >=
-        document.documentElement.scrollHeight
-      ) {
-        setScroll((prev) => prev + 1)
-        setOffset((prev) => prev + 10)
-      }
-    } catch (error) {
-      console.log(error)
-    }
-  }
+  // const handleInfiniteScroll = async (): Promise<void> => {
+  //   try {
+  //     if (
+  //       window.innerHeight + document.documentElement.scrollTop + 1 >=
+  //       document.documentElement.scrollHeight
+  //     ) {
+  //       setScroll((prev) => prev + 1)
+  //       setOffset((prev) => prev + 10)
+  //     }
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
+  // }
 
-  useEffect(() => {
-    // Attach the scroll event directly to the window
-    window.onscroll = handleInfiniteScroll
+  // useEffect(() => {
+  //   // Attach the scroll event directly to the window
+  //   window.onscroll = handleInfiniteScroll
 
-    return () => {
-      // Remove the scroll event listener when the component unmounts
-      window.onscroll = null
-    }
-  }, [])
+  //   return () => {
+  //     // Remove the scroll event listener when the component unmounts
+  //     window.onscroll = null
+  //   }
+  // }, [])
 
-  useEffect(() => {
-    void fetchMoreData()
-  }, [scroll])
+  // useEffect(() => {
+  //   void fetchMoreData()
+  // }, [scroll])
 
-  const fetchMoreData = async (): Promise<void> => {
-    // setIsScrollLoading(true)
-    // axios.get(`https://pokeapi.co/api/v2/pokemon?limit=10&offset=${offset}`).then((response) => {
-    //   const pokes: PokemonApi[] = response.data.results.map((p: PokemonApi, index: number) => ({ ...p, id: offset - 10 + index + 1 }))
-    //   setPokemons((prevPokemons: PokemonApi[]) => [...prevPokemons, ...pokes])
-    //   console.log(pokemons.length)
-    //   setIsScrollLoading(false)
-    console.log('fetching more data')
-    // }).catch((error) => {
-    //   setError(error)
-    // })
-  }
+  // const fetchMoreData = async (): Promise<void> => {
+  // setIsScrollLoading(true)
+  // axios.get(`https://pokeapi.co/api/v2/pokemon?limit=10&offset=${offset}`).then((response) => {
+  //   const pokes: PokemonApi[] = response.data.results.map((p: PokemonApi, index: number) => ({ ...p, id: offset - 10 + index + 1 }))
+  //   setPokemons((prevPokemons: PokemonApi[]) => [...prevPokemons, ...pokes])
+  //   console.log(pokemons.length)
+  //   setIsScrollLoading(false)
+  // console.log('fetching more data')
+  // }).catch((error) => {
+  //   setError(error)
+  // })
+  // }
 
   useEffect(() => {
     const fetchPokemons = (): void => {
@@ -109,7 +106,7 @@ function App (): JSX.Element {
                 </div>
               ))}
             </div>
-            <div className='flex flex-row justify-center'>{isScrollLoading ? <div className='bg-black  text-white my-4 p-2 rounded-md'>Loading...</div> : ''}</div>
+            {/* <div className='flex flex-row justify-center'>{isScrollLoading ? <div className='bg-black  text-white my-4 p-2 rounded-md'>Loading...</div> : ''}</div> */}
 
           </div>
           {/* Buttons- Next Previous Change Route */}
