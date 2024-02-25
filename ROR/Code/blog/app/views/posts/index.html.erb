@@ -1,0 +1,18 @@
+<h1>Posts</h1>
+<ul type="none">
+  <% @posts.each do |post| %>
+    <li>
+      <h2>
+<!--        <a href="/posts/<%#= post.id %>">-->
+          <%#= post.title %>
+<!--        </a>-->
+<!--        <a href="<%#= post_path(post) %>">-->
+          <%#= post.title %>
+<!--        </a>-->
+        <%= link_to post.title, post %>
+
+      </h2>
+      <p><%= post.description %></p>
+    </li>
+  <% end %>
+</ul>

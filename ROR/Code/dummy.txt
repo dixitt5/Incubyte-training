@@ -1,0 +1,3 @@
+This is the beginning of file
+hello
+this is end of file
