@@ -1,0 +1,32 @@
+---
+setup
+
+wsl --install -d Ubuntu
+explorer.exe .
+
+sudo apt-get update
+sudo apt install rbenv
+rbenv init
+rbenv install 2.7.1
+sudo gem install bundler
+sudo apt-get install ruby-dev zlib1g-dev liblzma-dev
+sudo gem install rails
+
+ruby -v
+gem env home
+
+ruby <file_name>
+
+
+---
+rails
+
+rails new demo_1 -T
+cd demo_1
+
+sudo bundle install
+
+sudo apt-get install libyaml-dev
+sudo gem install psych
+
+rails -v
