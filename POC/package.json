@@ -1,0 +1,20 @@
+{
+  "name": "poc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "format.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@langchain/core": "^0.1.32",
+    "@langchain/openai": "^0.0.14",
+    "axios": "^1.6.7",
+    "dotenv": "^16.4.5",
+    "langchain": "^0.1.21"
+  }
+}
