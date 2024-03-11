@@ -24,3 +24,7 @@ G.idea/sonarlint/issuestore/f/0/f07866736216be0ee2aba49e392191aeae700a35,b\f\bf
 gradlew.bat,2\a\2a45a911a8f1836b0b6c5b758962572012d8f8c3
 S
 #.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
+l
+<src/test/java/co/incubyte/primefactors/PrimeFactorsTest.java,4\8\4874339d30cea98a47f9a41f7cf9b0dab393e721
+h
+8src/main/java/co/incubyte/primefactors/PrimeFactors.java,e\d\ede9820abb83820165970f115b8fa898a20535c3
